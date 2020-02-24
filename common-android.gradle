@@ -1,0 +1,42 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    def config = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion config['compile_sdk']
+    buildToolsVersion config['build_tools']
+    defaultConfig {
+        minSdkVersion config['min_sdk']
+        targetSdkVersion config['target_sdk']
+        versionCode config['version_code']
+        versionName config['version_name']
+
+        testInstrumentationRunner config['test_runner']
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    def appDependencies = rootProject.ext.app
+    implementation appDependencies.kotlin
+    implementation appDependencies.appCompat
+    implementation appDependencies.androidx_core
+    implementation appDependencies.multidex
+    implementation appDependencies.androidx_support_legacy
+
+    def testDependencies = rootProject.ext.testing
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.android_junit
+    androidTestImplementation testDependencies.espresso
+}
