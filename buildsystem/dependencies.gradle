@@ -1,0 +1,23 @@
+apply from: 'buildsystem/version.gradle'
+
+ext {
+    app = [
+            kotlin                 : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            appCompat              : "androidx.appcompat:appcompat:$androidx.appCompat",
+            androidx_core          : "androidx.core:core-ktx:$androidx.appCompat",
+            androidx_support_legacy: "androidx.legacy:legacy-support-v4:$androidx.support",
+            multidex               : "androidx.multidex:multidex:$multidexVersion",
+            constraintLayout       : "androidx.constraintlayout:constraintlayout:$androidx.constraintLayout",
+            recyclerView           : "androidx.recyclerview:recyclerview:$androidx.recyclerView"
+    ]
+
+    testing = [
+            junit             : "junit:junit:$testing.junit",
+            android_junit     : "androidx.test.ext:junit:$testing.android_junit",
+            espresso          : "androidx.test.espresso:espresso-core:$testing.espresso",
+            mockito           : "org.mockito:mockito-core:$testing.mockito",
+            androidx_test_core: "androidx.test:core:$testing.androidx_test_core",
+            test_coroutines   : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$testing.test_coroutines",
+            mockito_kotlin    : "com.nhaarman:mockito-kotlin:$testing.mockito_kotlin"
+    ]
+}
