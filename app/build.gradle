@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
 apply from: "$rootDir/common-android.gradle"
 
 android {
@@ -9,7 +12,10 @@ android {
 
 dependencies {
     def appDependencies = rootProject.ext.app
-
     implementation appDependencies.constraintLayout
     implementation appDependencies.recyclerView
+
+    def firebaseDependencies = rootProject.ext.firebase
+    implementation firebaseDependencies.analytics
+    implementation firebaseDependencies.crashlytics
 }
