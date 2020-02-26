@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "951195492625",
+    "firebase_url": "https://what-u-doin.firebaseio.com",
+    "project_id": "what-u-doin",
+    "storage_bucket": "what-u-doin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951195492625:android:ff9171c8a5dc4999a4acb0",
+        "android_client_info": {
+          "package_name": "com.diet.dietfyer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951195492625-j0gs6946vnlquj26vu4vkgr43lp1pa55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5cYmRwdVVNu4hWwLXAdwrRCtaW1VTnt4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951195492625-25g2sb5i8skcsu1hnn2r4uhuoukd6ug3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

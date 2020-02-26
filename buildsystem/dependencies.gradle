@@ -20,4 +20,9 @@ ext {
             test_coroutines   : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$testing.test_coroutines",
             mockito_kotlin    : "com.nhaarman:mockito-kotlin:$testing.mockito_kotlin"
     ]
+
+    firebase = [
+            analytics: "com.google.firebase:firebase-analytics:$firebase.analytics",
+            crashlytics: "com.google.firebase:firebase-crashlytics:$firebase.crashlytics"
+    ]
 }
