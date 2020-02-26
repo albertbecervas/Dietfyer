@@ -1,0 +1,7 @@
+apply plugin: 'com.android.library'
+apply from: "$rootDir/common-android.gradle"
+
+dependencies {
+    def appDependencies = rootProject.ext.app
+    implementation appDependencies.recyclerView
+}
