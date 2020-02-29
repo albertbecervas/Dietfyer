@@ -11,6 +11,11 @@ ext {
             recyclerView           : "androidx.recyclerview:recyclerview:$androidx.recyclerView"
     ]
 
+    modules = [
+            base   : project(":base"),
+            session: project(":feature-session")
+    ]
+
     testing = [
             junit             : "junit:junit:$testing.junit",
             android_junit     : "androidx.test.ext:junit:$testing.android_junit",
@@ -22,7 +27,23 @@ ext {
     ]
 
     firebase = [
-            analytics: "com.google.firebase:firebase-analytics:$firebase.analytics",
+            analytics  : "com.google.firebase:firebase-analytics:$firebase.analytics",
             crashlytics: "com.google.firebase:firebase-crashlytics:$firebase.crashlytics"
+    ]
+
+    koin = [
+            koin          : "org.koin:koin-android:$koin.koin_version",
+            koin_scope    : "org.koin:koin-android-scope:$koin.koin_version",
+            koin_viewmodel: "org.koin:koin-android-viewmodel:$koin.koin_version"
+    ]
+
+    dagger = [
+            dagger                : "com.google.dagger:dagger:$dagger.dagger2_version",
+            daggerAndroid         : "com.google.dagger:dagger-android:$dagger.dagger2_version",
+            daggerAndroidSupport  : "com.google.dagger:dagger-android-support:$dagger.dagger2_version",
+            daggerCompiler        : "com.google.dagger:dagger-compiler:$dagger.dagger2_version",
+            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$dagger.dagger2_version",
+            javaxJsrApi           : "javax.annotation:jsr250-api:$dagger.javaxJsrApi_version",
+            javaxInject           : "javax.inject:javax.inject:$dagger.javaxInject_version"
     ]
 }

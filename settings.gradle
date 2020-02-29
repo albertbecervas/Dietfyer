@@ -1,2 +1,2 @@
-include ':app', ':base'
+include ':app', ':base', ':feature-session'
 rootProject.name='Dietfyer'

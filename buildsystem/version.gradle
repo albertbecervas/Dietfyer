@@ -32,4 +32,14 @@ ext {
             analytics  : "17.2.2",
             crashlytics: "17.0.0-beta01"
     ]
+
+    koin = [
+            koin_version: "2.0.0-rc-2"
+    ]
+
+    dagger = [
+            dagger2_version    : "2.15",
+            javaxJsrApi_version: "1.0",
+            javaxInject_version: "1"
+    ]
 }
