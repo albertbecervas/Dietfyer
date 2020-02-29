@@ -1,5 +1,5 @@
 package com.diet.session
 
-import com.diet.base.presentation.BasePresenter
+import com.abecerra.base.presentation.BasePresenter
 
 interface LoginPresenter : BasePresenter<LoginView>

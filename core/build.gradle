@@ -1,26 +1,14 @@
-apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'com.google.firebase.crashlytics'
-
+apply plugin: 'com.android.library'
 apply from: "$rootDir/common-android.gradle"
-
-android {
-    defaultConfig {
-        applicationId 'com.diet.dietfyer'
-    }
-}
 
 dependencies {
     def appDependencies = rootProject.ext.app
-    implementation appDependencies.constraintLayout
     implementation appDependencies.recyclerView
-
-    def firebaseDependencies = rootProject.ext.firebase
-    implementation firebaseDependencies.analytics
-    implementation firebaseDependencies.crashlytics
+    implementation appDependencies.constraintLayout
 
     def modulesDependencies = rootProject.ext.modules
-    implementation modulesDependencies.core
+    implementation modulesDependencies.base
+    implementation modulesDependencies.session
 
     def daggerDependencies = rootProject.ext.dagger
     implementation daggerDependencies.dagger
