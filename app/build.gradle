@@ -20,7 +20,8 @@ dependencies {
     implementation firebaseDependencies.crashlytics
 
     def modulesDependencies = rootProject.ext.modules
-    implementation modulesDependencies.core
+    implementation modulesDependencies.base
+    implementation modulesDependencies.session
 
     def daggerDependencies = rootProject.ext.dagger
     implementation daggerDependencies.dagger

@@ -34,6 +34,7 @@ dependencies {
     implementation appDependencies.androidx_core
     implementation appDependencies.multidex
     implementation appDependencies.androidx_support_legacy
+    implementation appDependencies.constraintLayout
 
     def testDependencies = rootProject.ext.testing
     testImplementation testDependencies.junit
