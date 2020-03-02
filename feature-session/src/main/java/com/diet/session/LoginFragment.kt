@@ -13,6 +13,6 @@ class LoginFragment(presenterConfigurator: PresenterConfigurator<LoginPresenter>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getPresenter()?.setView(this)
+        presenter?.setView(this)
     }
 }

@@ -12,7 +12,7 @@ ext {
     ]
 
     modules = [
-            base   : 'com.github.albertbecervas:base:v1.0',
+            base   : 'com.github.albertbecervas:base:v1.2',
             core   : project(":core"),
             session: project(":feature-session")
     ]
