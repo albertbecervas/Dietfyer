@@ -21,6 +21,8 @@ dependencies {
 
     def modulesDependencies = rootProject.ext.modules
     implementation modulesDependencies.base
+    implementation modulesDependencies.resources
+    implementation modulesDependencies.components
     implementation modulesDependencies.session
 
     def daggerDependencies = rootProject.ext.dagger

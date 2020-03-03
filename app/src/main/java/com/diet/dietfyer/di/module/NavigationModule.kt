@@ -10,11 +10,7 @@ import java.lang.ref.WeakReference
 class NavigationModule {
 
     @Provides
-    fun provideNavigator(context: Context): Navigator {
-        return Navigator(
-            WeakReference(
-                context
-            )
-        )
+    fun provideNavigator(context: Context?): Navigator {
+        return Navigator(WeakReference(context))
     }
 }
