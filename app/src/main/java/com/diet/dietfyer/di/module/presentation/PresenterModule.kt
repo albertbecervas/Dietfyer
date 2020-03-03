@@ -10,19 +10,18 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class PresenterModule {
+open class PresenterModule {
 
     @Provides
-    fun provideMainPresenter(router: MainRouter, interactor: MainInteractor): MainPresenter {
+    open fun provideMainPresenter(router: MainRouter, interactor: MainInteractor): MainPresenter {
         return MainPresenterImpl(
             router,
             interactor
         )
     }
 
-
     @Provides
-    fun provideLoginPresenter(): LoginPresenter {
+    open fun provideLoginPresenter(): LoginPresenter {
         return LoginPresenterImpl()
     }
 }

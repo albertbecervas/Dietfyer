@@ -8,10 +8,10 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class RouterModule {
+open class RouterModule {
 
     @Provides
-    fun provideMainRouter(loginFragment: LoginFragment, navigator: Navigator): MainRouter {
+    open fun provideMainRouter(loginFragment: LoginFragment, navigator: Navigator): MainRouter {
         return MainRouterImpl(
             loginFragment,
             navigator
