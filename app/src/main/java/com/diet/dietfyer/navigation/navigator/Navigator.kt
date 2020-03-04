@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import java.lang.ref.WeakReference
 
-class Navigator(private val context: WeakReference<Context>?) {
+class Navigator(private val context: WeakReference<Context?>?) {
 
     fun replaceFragment(fragment: Fragment, layout: Int) {
         when (context?.get()) {

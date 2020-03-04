@@ -1,7 +1,7 @@
 package com.diet.dietfyer.navigation.routers
 
 import com.diet.dietfyer.navigation.navigator.Navigator
-import com.diet.dietfyer.scenes.presentation.router.MainRouter
+import com.diet.dietfyer.scenes.main.router.MainRouter
 import com.diet.session.LoginFragment
 import javax.inject.Inject
 

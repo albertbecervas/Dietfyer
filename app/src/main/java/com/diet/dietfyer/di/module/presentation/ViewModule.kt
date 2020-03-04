@@ -8,17 +8,17 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class ViewModule(private val context: Context) {
+open class ViewModule(private val context: Context?) {
 
     @Provides
-    fun provideContext(): Context {
-        return context
-    }
+    open fun provideContext(): Context? = context
 
     @Provides
-    fun provideLoginFragment(loginPresenter: LoginPresenter): LoginFragment {
-        return LoginFragment(object : PresenterConfigurator<LoginPresenter> {
+    open fun provideLoginFragment(loginPresenter: LoginPresenter): LoginFragment {
+        val loginFragment = LoginFragment()
+        loginFragment.injectPresenterConfigurator(object : PresenterConfigurator<LoginPresenter> {
             override fun getPresenter(): LoginPresenter? = loginPresenter
         })
+        return loginFragment
     }
 }
