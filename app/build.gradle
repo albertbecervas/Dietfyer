@@ -18,4 +18,17 @@ dependencies {
     def firebaseDependencies = rootProject.ext.firebase
     implementation firebaseDependencies.analytics
     implementation firebaseDependencies.crashlytics
+
+    def modulesDependencies = rootProject.ext.modules
+    implementation modulesDependencies.core
+
+    def daggerDependencies = rootProject.ext.dagger
+    implementation daggerDependencies.dagger
+    implementation daggerDependencies.daggerAndroid
+    implementation daggerDependencies.daggerAndroidSupport
+    kapt daggerDependencies.daggerAndroidProcessor
+    kapt daggerDependencies.daggerCompiler
+    annotationProcessor daggerDependencies.daggerCompiler
+    compileOnly daggerDependencies.javaxJsrApi
+    implementation daggerDependencies.javaxInject
 }
