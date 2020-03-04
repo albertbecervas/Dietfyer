@@ -38,8 +38,9 @@ class BottomNavigationComponent : LinearLayout {
 
     private fun init() {
         inflate(context, R.layout.view_bottom_navigation, this)
-        ah_bottom_nav.setOnNavigationPositionListener {
-            listener?.onItemSelected(it)
+        ah_bottom_nav.setOnTabSelectedListener { position, wasSelected ->
+            if (!wasSelected) listener?.onItemSelected(position)
+            true
         }
     }
 }

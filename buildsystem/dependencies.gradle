@@ -12,7 +12,7 @@ ext {
     ]
 
     modules = [
-            base      : 'com.github.albertbecervas:base:v1.0',
+            base      : 'com.github.albertbecervas:base:v1.4',
             resources : project(":app-resources"),
             components: project(":components"),
             session   : project(":feature-session")
@@ -26,7 +26,8 @@ ext {
             androidx_test_core: "androidx.test:core:$testing.androidx_test_core",
             test_coroutines   : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$testing.test_coroutines",
             mockito_kotlin    : "com.nhaarman:mockito-kotlin:$testing.mockito_kotlin",
-            rules             : 'androidx.test:rules:1.1.0-beta02'
+            rules             : 'androidx.test:rules:1.1.0-beta02',
+            dagger            : "com.google.dagger:dagger-compiler:2.15"
     ]
 
     firebase = [

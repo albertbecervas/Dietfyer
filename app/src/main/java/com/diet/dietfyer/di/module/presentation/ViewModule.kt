@@ -15,8 +15,10 @@ open class ViewModule(private val context: Context?) {
 
     @Provides
     open fun provideLoginFragment(loginPresenter: LoginPresenter): LoginFragment {
-        return LoginFragment(object : PresenterConfigurator<LoginPresenter> {
+        val loginFragment = LoginFragment()
+        loginFragment.injectPresenterConfigurator(object : PresenterConfigurator<LoginPresenter> {
             override fun getPresenter(): LoginPresenter? = loginPresenter
         })
+        return loginFragment
     }
 }

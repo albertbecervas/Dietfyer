@@ -33,7 +33,7 @@ class MainActivity : BaseActivity(), MainView {
         bottom_navigation.setItems(presenter.getNavigationItems())
         bottom_navigation.setBottomNavigationListener(object : BottomNavigationListener {
             override fun onItemSelected(position: Int) {
-                Toast.makeText(this@MainActivity, position, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, "$position", Toast.LENGTH_SHORT).show()
             }
         })
     }
