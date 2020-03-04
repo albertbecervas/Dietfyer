@@ -2,8 +2,6 @@ package com.diet.dietfyer.scenes.main.view
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
-import com.diet.dietfyer.DaggerTestViewComponent
-import com.diet.dietfyer.di.module.presentation.ViewModule
 import com.diet.session.LoginPresenter
 import com.diet.session.LoginView
 import org.junit.Before
@@ -20,7 +18,7 @@ class MainActivityTest {
 
     @get:Rule
     val testRule: ActivityTestRule<MainActivity> =
-        ActivityTestRule(MainActivity::class.java, false, true)
+        ActivityTestRule(MainActivity::class.java, false, false)
 
     @Mock
     lateinit var presenter: LoginPresenter
@@ -31,14 +29,11 @@ class MainActivityTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-
     }
 
     @Test
     fun testOnCreate() {
         testRule.launchActivity(null)
         verify(presenter, times(1)).setView(view)
-
     }
-
 }
