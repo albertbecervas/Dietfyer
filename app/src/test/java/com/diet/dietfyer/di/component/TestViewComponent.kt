@@ -1,6 +1,6 @@
 package com.diet.dietfyer.di.component
 
-import com.diet.dietfyer.di.module.NavigationModule
+import com.diet.dietfyer.di.module.presentation.NavigationModule
 import com.diet.dietfyer.di.module.data.RepositoryModule
 import com.diet.dietfyer.di.module.domain.InteractorModule
 import com.diet.dietfyer.di.module.presentation.PresenterModule

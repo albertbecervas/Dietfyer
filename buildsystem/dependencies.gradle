@@ -11,23 +11,8 @@ ext {
             recyclerView           : "androidx.recyclerview:recyclerview:$androidx.recyclerView"
     ]
 
-    modules = [
-            base      : 'com.github.albertbecervas:base:v1.4',
-            resources : project(":app-resources"),
-            components: project(":components"),
-            session   : project(":feature-session")
-    ]
-
-    testing = [
-            junit             : "junit:junit:$testing.junit",
-            android_junit     : "androidx.test.ext:junit:$testing.android_junit",
-            espresso          : "androidx.test.espresso:espresso-core:$testing.espresso",
-            mockito           : "org.mockito:mockito-core:$testing.mockito",
-            androidx_test_core: "androidx.test:core:$testing.androidx_test_core",
-            test_coroutines   : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$testing.test_coroutines",
-            mockito_kotlin    : "com.nhaarman:mockito-kotlin:$testing.mockito_kotlin",
-            rules             : 'androidx.test:rules:1.1.0-beta02',
-            dagger            : "com.google.dagger:dagger-compiler:2.15"
+    google = [
+            gson: "com.google.code.gson:gson:$google.gson"
     ]
 
     firebase = [
@@ -35,10 +20,24 @@ ext {
             crashlytics: "com.google.firebase:firebase-crashlytics:$firebase.crashlytics"
     ]
 
-    koin = [
-            koin          : "org.koin:koin-android:$koin.koin_version",
-            koin_scope    : "org.koin:koin-android-scope:$koin.koin_version",
-            koin_viewmodel: "org.koin:koin-android-viewmodel:$koin.koin_version"
+    modules = [
+            base        : project(':base'),
+            appResources: project(':app-resources'),
+            components  : project(':components'),
+            session     : project(':feature-session')
+    ]
+
+    testing = [
+            junit         : "junit:junit:$testing.junit",
+            android_junit : "androidx.test.ext:junit:$testing.android_junit",
+            espresso      : "androidx.test.espresso:espresso-core:$testing.espresso",
+            mockito       : "org.mockito:mockito-core:$testing.mockito",
+            fragment      : "androidx.fragment:fragment-testing:$testing.fragment",
+            truth         : "com.google.truth:truth:$testing.truth",
+            mockWebServer : "com.squareup.okhttp3:mockwebserver:$testing.mockWebServer",
+            mockito_kotlin: "com.nhaarman:mockito-kotlin:$testing.mockito_kotlin",
+            rules         : "androidx.test:rules:$testing.rules",
+            dagger        : "com.google.dagger:dagger-compiler:$dagger.dagger2_version",
     ]
 
     dagger = [
@@ -49,5 +48,10 @@ ext {
             daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$dagger.dagger2_version",
             javaxJsrApi           : "javax.annotation:jsr250-api:$dagger.javaxJsrApi_version",
             javaxInject           : "javax.inject:javax.inject:$dagger.javaxInject_version"
+    ]
+
+    retrofit = [
+            retrofit: "com.squareup.retrofit2:retrofit:$retrofit.retrofit_version",
+            moshi   : "com.squareup.retrofit2:converter-moshi:$retrofit.moshi_version"
     ]
 }
