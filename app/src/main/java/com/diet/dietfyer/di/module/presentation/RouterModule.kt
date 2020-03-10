@@ -12,9 +12,6 @@ open class RouterModule {
 
     @Provides
     open fun provideMainRouter(loginFragment: LoginFragment, navigator: Navigator): MainRouter {
-        return MainRouterImpl(
-            loginFragment,
-            navigator
-        )
+        return MainRouterImpl(loginFragment, navigator)
     }
 }

@@ -1,4 +1,4 @@
-package com.diet.dietfyer.di.module
+package com.diet.dietfyer.di.module.presentation
 
 import android.content.Context
 import com.diet.dietfyer.navigation.navigator.Navigator
