@@ -11,7 +11,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:$gradle_tools"
+        classpath "com.android.tools.build:gradle:${gradle_tools}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.google.gms:google-services:$google_services"
         classpath "com.google.firebase:firebase-crashlytics-gradle:$crashlytics_gradle"

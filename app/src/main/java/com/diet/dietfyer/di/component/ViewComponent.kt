@@ -1,5 +1,6 @@
 package com.diet.dietfyer.di.component
 
+import com.diet.dietfyer.di.module.data.NetworkModule
 import com.diet.dietfyer.scenes.main.view.MainActivity
 import com.diet.dietfyer.di.module.presentation.NavigationModule
 import com.diet.dietfyer.di.module.data.RepositoryModule
@@ -11,7 +12,8 @@ import dagger.Component
 
 @Component(
     modules = [ViewModule::class, PresenterModule::class, RouterModule::class,
-        NavigationModule::class, InteractorModule::class, RepositoryModule::class]
+        NavigationModule::class, InteractorModule::class, RepositoryModule::class,
+        NetworkModule::class]
 )
 interface ViewComponent {
 

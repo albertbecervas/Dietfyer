@@ -1,5 +1,6 @@
 include ':app-resources'
 include ':components'
-include ':app', ':feature-session'
+include ':app', ':session'
 rootProject.name='Dietfyer'
 include ':base'
+include ':network'
