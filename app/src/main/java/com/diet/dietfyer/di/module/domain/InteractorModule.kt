@@ -1,7 +1,7 @@
 package com.diet.dietfyer.di.module.domain
 
-import com.diet.session.authentication.domain.interactor.LoginInteractor
-import com.diet.session.authentication.domain.interactor.LoginInteractorImpl
+import com.diet.session.authentication.domain.interactor.SessionInteractor
+import com.diet.session.authentication.domain.interactor.SessionInteractorImpl
 import com.diet.session.authentication.domain.repository.SessionRepository
 import dagger.Module
 import dagger.Provides
@@ -10,7 +10,7 @@ import dagger.Provides
 class InteractorModule {
 
     @Provides
-    fun provideLoginInteractor(sessionRepository: SessionRepository): LoginInteractor {
-        return LoginInteractorImpl(sessionRepository)
+    fun provideSessionInteractor(sessionRepository: SessionRepository): SessionInteractor {
+        return SessionInteractorImpl(sessionRepository)
     }
 }

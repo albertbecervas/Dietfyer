@@ -11,9 +11,17 @@ class SessionRepositoryImpl(private val userService: UserService) :
 
     override fun doLogin(user: User) {
         userService.login(user.username, user.password, {
-            output?.onSuccessFulSignIn()
+            output?.onSuccessfulSignIn()
         }, {
             output?.onErrorSigningIn()
+        })
+    }
+
+    override fun doSignUpWithEmailAndPassword(user: User) {
+        userService.signUpWithEmailAndPassword(user.username, user.password, {
+            output?.onSuccessfulSignUp()
+        }, {
+            output?.onErrorSigningUp()
         })
     }
 }

@@ -13,4 +13,17 @@ class UserServiceImpl : UserService {
                 }
             }
     }
+
+    override fun signUpWithEmailAndPassword(
+        userName: String, password: String, success: () -> Unit, error: () -> Unit
+    ) {
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(userName, password)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    success()
+                } else {
+                    error()
+                }
+            }
+    }
 }

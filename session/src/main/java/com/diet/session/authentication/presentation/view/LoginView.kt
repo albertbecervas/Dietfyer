@@ -1,6 +1,7 @@
 package com.diet.session.authentication.presentation.view
 
-interface LoginView {
+import com.abecerra.base.presentation.BaseView
 
-    fun showLoginError()
+interface LoginView : BaseView {
+
 }

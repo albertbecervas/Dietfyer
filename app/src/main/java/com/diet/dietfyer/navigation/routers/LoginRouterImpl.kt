@@ -1,9 +1,18 @@
 package com.diet.dietfyer.navigation.routers
 
+import android.content.Intent
+import androidx.fragment.app.Fragment
 import com.diet.dietfyer.navigation.navigator.Navigator
 import com.diet.session.authentication.presentation.router.LoginRouter
+import com.diet.session.authentication.presentation.view.LoginFragment
 
-class LoginRouterImpl(navigator: Navigator) : LoginRouter {
+class LoginRouterImpl(private val navigator: Navigator) : LoginRouter {
+
+    override fun onGoogleSignUpClicked(intent: Intent, resultCode: Int, fragment: Fragment) {
+        navigator.startActivityForResult(intent, LoginFragment.GOOGLE_SIGN_IN, fragment)
+    }
+
     override fun onUserLogged() {
+
     }
 }
