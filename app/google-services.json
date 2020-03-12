@@ -1,34 +1,50 @@
 {
   "project_info": {
-    "project_number": "951195492625",
-    "firebase_url": "https://what-u-doin.firebaseio.com",
-    "project_id": "what-u-doin",
-    "storage_bucket": "what-u-doin.appspot.com"
+    "project_number": "432465320119",
+    "firebase_url": "https://dietfyer.firebaseio.com",
+    "project_id": "dietfyer",
+    "storage_bucket": "dietfyer.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:951195492625:android:ff9171c8a5dc4999a4acb0",
+        "mobilesdk_app_id": "1:432465320119:android:6ca277449c9a94a5745532",
         "android_client_info": {
           "package_name": "com.diet.dietfyer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "951195492625-j0gs6946vnlquj26vu4vkgr43lp1pa55.apps.googleusercontent.com",
+          "client_id": "432465320119-mkn2hgaht6jc97tm65hi047d3q50ad4b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diet.dietfyer",
+            "certificate_hash": "11a8a332c714c0daf00ecbe1d60ea7c9022d9717"
+          }
+        },
+        {
+          "client_id": "432465320119-95r7k5ik0gqirgdb8kbfm2s1cricsfg2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diet.dietfyer",
+            "certificate_hash": "68b341c506c9c0fa844fd849d982da93c1b0e18f"
+          }
+        },
+        {
+          "client_id": "432465320119-mgma3v15nj0971qq3tblnf2j02uh707i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA5cYmRwdVVNu4hWwLXAdwrRCtaW1VTnt4"
+          "current_key": "AIzaSyBvgp8AFsCtKcLm1SWvU4bIQTRtox5ydeo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "951195492625-25g2sb5i8skcsu1hnn2r4uhuoukd6ug3.apps.googleusercontent.com",
+              "client_id": "432465320119-mgma3v15nj0971qq3tblnf2j02uh707i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

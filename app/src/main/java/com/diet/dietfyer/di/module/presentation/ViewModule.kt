@@ -1,8 +1,8 @@
 package com.diet.dietfyer.di.module.presentation
 
 import android.content.Context
-import com.diet.session.LoginFragment
-import com.diet.session.LoginPresenter
+import com.diet.session.authentication.presentation.view.LoginFragment
+import com.diet.session.authentication.presentation.presenter.LoginPresenter
 import dagger.Module
 import dagger.Provides
 

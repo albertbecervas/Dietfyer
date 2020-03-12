@@ -3,6 +3,8 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 apply from: "$rootDir/common-android.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     defaultConfig {
@@ -23,12 +25,15 @@ dependencies {
     implementation modulesDependencies.appResources
     implementation modulesDependencies.base
     implementation modulesDependencies.components
+    implementation modulesDependencies.network
     implementation modulesDependencies.session
 
     def daggerDependencies = rootProject.ext.dagger
     implementation daggerDependencies.dagger
     implementation daggerDependencies.daggerAndroid
     implementation daggerDependencies.daggerAndroidSupport
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     kapt daggerDependencies.daggerAndroidProcessor
     kapt daggerDependencies.daggerCompiler
     annotationProcessor daggerDependencies.daggerCompiler

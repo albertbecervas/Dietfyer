@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+apply from: "$rootDir/common-android.gradle"
+
+dependencies {
+    def modulesDependencies = rootProject.ext.modules
+    implementation modulesDependencies.base
+    implementation modulesDependencies.appResources
+    implementation modulesDependencies.network
+
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+}

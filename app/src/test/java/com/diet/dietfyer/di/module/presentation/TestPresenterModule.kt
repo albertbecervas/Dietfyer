@@ -1,7 +1,7 @@
 package com.diet.dietfyer.di.module.presentation
 
-import com.diet.session.LoginPresenter
-import com.diet.session.LoginPresenterImpl
+import com.diet.session.authentication.presentation.presenter.LoginPresenter
+import com.diet.session.authentication.presentation.presenter.LoginPresenterImpl
 import dagger.Module
 import dagger.Provides
 

@@ -24,7 +24,8 @@ ext {
             base        : project(':base'),
             appResources: project(':app-resources'),
             components  : project(':components'),
-            session     : project(':feature-session')
+            network     : project(':network'),
+            session     : project(':session')
     ]
 
     testing = [

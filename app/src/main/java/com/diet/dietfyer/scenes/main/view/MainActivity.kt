@@ -37,5 +37,4 @@ class MainActivity : BaseActivity(), MainView {
             }
         })
     }
-
 }
