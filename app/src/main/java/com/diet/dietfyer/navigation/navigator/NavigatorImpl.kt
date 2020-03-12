@@ -8,6 +8,12 @@ import java.lang.ref.WeakReference
 
 class NavigatorImpl(private val context: WeakReference<Context?>?) : Navigator {
 
+    override fun startActivity(clazz: Class<*>) {
+        context?.get()?.let {
+            it.startActivity(Intent(it, clazz))
+        }
+    }
+
     override fun startActivityForResult(intent: Intent, resultCode: Int, fragment: Fragment) {
         fragment.startActivityForResult(intent, resultCode)
     }

@@ -8,6 +8,7 @@ import com.diet.dietfyer.di.module.domain.InteractorModule
 import com.diet.dietfyer.di.module.presentation.PresenterModule
 import com.diet.dietfyer.di.module.presentation.RouterModule
 import com.diet.dietfyer.di.module.presentation.ViewModule
+import com.diet.dietfyer.scenes.fullscreen.LauncherActivity
 import dagger.Component
 
 @Component(
@@ -17,5 +18,6 @@ import dagger.Component
 )
 interface ViewComponent {
 
+    fun inject(launcherActivity: LauncherActivity)
     fun inject(mainActivity: MainActivity)
 }

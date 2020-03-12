@@ -5,7 +5,6 @@ import com.diet.dietfyer.navigation.routers.LoginRouterImpl
 import com.diet.dietfyer.navigation.routers.MainRouterImpl
 import com.diet.dietfyer.scenes.main.router.MainRouter
 import com.diet.session.authentication.presentation.router.LoginRouter
-import com.diet.session.authentication.presentation.view.LoginFragment
 import dagger.Module
 import dagger.Provides
 
@@ -13,8 +12,8 @@ import dagger.Provides
 open class RouterModule {
 
     @Provides
-    open fun provideMainRouter(loginFragment: LoginFragment, navigator: Navigator): MainRouter {
-        return MainRouterImpl(loginFragment, navigator)
+    open fun provideMainRouter(navigator: Navigator): MainRouter {
+        return MainRouterImpl(navigator)
     }
 
     @Provides

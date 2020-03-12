@@ -47,10 +47,12 @@ class LoginPresenterImpl(
     }
 
     override fun userIsLogged() {
+        router.onUserLogged()
         this.getView()?.showErrorMessage("Login ok")
     }
 
     override fun userIsSignedUp() {
+        router.onUserLogged()
         this.getView()?.showErrorMessage("Signup OK")
     }
 
