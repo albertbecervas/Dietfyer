@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import com.abecerra.base.presentation.BasePresenterImpl
 import com.diet.session.authentication.domain.interactor.SessionInteractor
 import com.diet.session.authentication.domain.interactor.SessionInteractorOutput
-import com.diet.session.authentication.domain.model.User
+import com.diet.session.authentication.domain.model.UserForm
 import com.diet.session.authentication.presentation.router.LoginRouter
 import com.diet.session.authentication.presentation.view.LoginFragment.Companion.GOOGLE_SIGN_IN
 import com.diet.session.authentication.presentation.view.LoginView
@@ -26,11 +26,11 @@ class LoginPresenterImpl(
     }
 
     override fun onLoginClicked(username: String, password: String) {
-        sessionInteractor.login(User(username, password))
+        sessionInteractor.login(UserForm(username, password))
     }
 
     override fun onSignUpWithEmailClicked(username: String, password: String) {
-        sessionInteractor.signup(User(username, password))
+        sessionInteractor.signUp(UserForm(username, password))
     }
 
     override fun onSignInWithGoogleClicked() {
@@ -72,7 +72,10 @@ class LoginPresenterImpl(
     private fun handleGoogleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account = completedTask.getResult(ApiException::class.java)
-            router.onUserLogged()
+            account?.let {
+                sessionInteractor.saveUserLogged(UserForm("", ""))
+                router.onUserLogged()
+            }
         } catch (e: ApiException) {
             e.localizedMessage?.let {
                 this.getView()?.showErrorMessage(it)

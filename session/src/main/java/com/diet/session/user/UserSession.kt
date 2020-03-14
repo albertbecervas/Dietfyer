@@ -2,7 +2,13 @@ package com.diet.session.user
 
 object UserSession {
 
-    fun isUserLogged(): Boolean {
+    private var userDataSource: UserSharedPreferences? = null
 
+    fun injectUserDataSource(userDataSource: UserSharedPreferences) {
+        this.userDataSource = userDataSource
+    }
+
+    fun isUserLogged(): Boolean {
+        return userDataSource?.isUserLogged() ?: false
     }
 }

@@ -3,23 +3,21 @@ package com.diet.session.user
 import android.content.Context
 import android.content.SharedPreferences
 
-class UserSharedPreferences {
+class UserSharedPreferences(context: Context) : UserDataSource {
 
     companion object {
-        const val USER: String = "user_id"
+        const val USER_SHARED_PREFERENCES: String = "userPrefs"
+        const val USER_LOGGED: String = "user_id"
     }
 
-    private lateinit var mPrefs: SharedPreferences
+    private var mPrefs: SharedPreferences = context
+        .getSharedPreferences(USER_SHARED_PREFERENCES, Context.MODE_PRIVATE)
 
-    fun init(context: Context) {
-        mPrefs = context.getSharedPreferences("userPrefs", Context.MODE_PRIVATE)
+    override fun isUserLogged(): Boolean {
+        return mPrefs.getBoolean(USER_LOGGED, false)
     }
 
-    fun isUserLogged(): Boolean {
-        return mPrefs.getBoolean(USER, false)
-    }
-
-    fun setUserLogged() {
-        mPrefs.edit().putBoolean(USER, true).apply()
+    override fun setUserLogged() {
+        mPrefs.edit().putBoolean(USER_LOGGED, true).apply()
     }
 }

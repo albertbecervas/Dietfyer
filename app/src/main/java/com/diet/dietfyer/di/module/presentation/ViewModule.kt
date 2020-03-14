@@ -7,10 +7,10 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-open class ViewModule(private val context: Context?) {
+open class ViewModule(private val context: Context) {
 
     @Provides
-    open fun provideContext(): Context? = context
+    open fun provideContext(): Context = context
 
     @Provides
     open fun provideLoginFragment(loginPresenter: LoginPresenter): LoginFragment {
