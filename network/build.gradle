@@ -6,5 +6,6 @@ dependencies {
     implementation modulesDependencies.base
     implementation modulesDependencies.appResources
 
-    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-auth:19.3.0'
+    implementation 'com.google.firebase:firebase-firestore:21.4.1'
 }

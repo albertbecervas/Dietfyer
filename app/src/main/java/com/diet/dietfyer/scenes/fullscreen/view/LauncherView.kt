@@ -1,3 +1,5 @@
 package com.diet.dietfyer.scenes.fullscreen.view
 
-interface LauncherView
+import com.abecerra.base.presentation.BaseView
+
+interface LauncherView: BaseView

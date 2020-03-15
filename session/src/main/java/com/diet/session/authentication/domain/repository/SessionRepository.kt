@@ -9,5 +9,9 @@ interface SessionRepository : BaseRepository<SessionRepositoryOutput> {
 
     fun doSignUpWithEmailAndPassword(user: UserForm)
 
-    fun saveLoggedUser(user: UserForm)
+    fun saveLoggedUser(userId: String)
+
+    fun doLogout()
+
+    fun checkIfUserIsLoggedIn(): Boolean
 }

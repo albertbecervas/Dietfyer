@@ -1,5 +1,6 @@
 package com.diet.dietfyer.di.component
 
+import com.diet.dietfyer.di.module.data.GoogleAuthModule
 import com.diet.dietfyer.di.module.data.NetworkModule
 import com.diet.dietfyer.di.module.data.RepositoryModule
 import com.diet.dietfyer.di.module.data.SharedPreferencesModule
@@ -15,7 +16,7 @@ import dagger.Component
 @Component(
     modules = [ViewModule::class, PresenterModule::class, RouterModule::class,
         NavigationModule::class, InteractorModule::class, RepositoryModule::class,
-        NetworkModule::class, SharedPreferencesModule::class]
+        NetworkModule::class, SharedPreferencesModule::class, GoogleAuthModule::class]
 )
 interface ViewComponent {
 

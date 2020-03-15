@@ -16,6 +16,6 @@ class LauncherRouterImpl(
     }
 
     override fun navigateToHome() {
-        navigator.startActivity(MainActivity::class.java)
+        navigator.startActivityFinishingCurrent(MainActivity::class.java)
     }
 }

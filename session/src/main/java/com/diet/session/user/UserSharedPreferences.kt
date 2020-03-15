@@ -20,4 +20,8 @@ class UserSharedPreferences(context: Context) : UserDataSource {
     override fun setUserLogged() {
         mPrefs.edit().putBoolean(USER_LOGGED, true).apply()
     }
+
+    override fun logOutUser() {
+        mPrefs.edit().putBoolean(USER_LOGGED, false).apply()
+    }
 }

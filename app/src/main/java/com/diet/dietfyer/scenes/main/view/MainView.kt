@@ -1,3 +1,5 @@
 package com.diet.dietfyer.scenes.main.view
 
-interface MainView
+import com.abecerra.base.presentation.BaseView
+
+interface MainView: BaseView

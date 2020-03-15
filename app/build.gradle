@@ -10,6 +10,14 @@ android {
     defaultConfig {
         applicationId 'com.diet.dietfyer'
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -20,6 +28,8 @@ dependencies {
     def firebaseDependencies = rootProject.ext.firebase
     implementation firebaseDependencies.analytics
     implementation firebaseDependencies.crashlytics
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
 
     def modulesDependencies = rootProject.ext.modules
     implementation modulesDependencies.appResources

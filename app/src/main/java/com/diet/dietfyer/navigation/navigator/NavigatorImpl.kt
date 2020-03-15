@@ -14,6 +14,13 @@ class NavigatorImpl(private val context: WeakReference<Context?>?) : Navigator {
         }
     }
 
+    override fun startActivityFinishingCurrent(clazz: Class<*>) {
+        (context?.get() as? AppCompatActivity)?.let {
+            it.startActivity(Intent(it, clazz))
+            it.finish()
+        }
+    }
+
     override fun startActivityForResult(intent: Intent, resultCode: Int, fragment: Fragment) {
         fragment.startActivityForResult(intent, resultCode)
     }

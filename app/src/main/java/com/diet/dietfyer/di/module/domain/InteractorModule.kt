@@ -3,6 +3,7 @@ package com.diet.dietfyer.di.module.domain
 import com.diet.session.authentication.domain.interactor.SessionInteractor
 import com.diet.session.authentication.domain.interactor.SessionInteractorImpl
 import com.diet.session.authentication.domain.repository.SessionRepository
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import dagger.Module
 import dagger.Provides
 
@@ -10,7 +11,10 @@ import dagger.Provides
 class InteractorModule {
 
     @Provides
-    fun provideSessionInteractor(sessionRepository: SessionRepository): SessionInteractor {
-        return SessionInteractorImpl(sessionRepository)
+    fun provideSessionInteractor(
+        sessionRepository: SessionRepository,
+        googleSignInClient: GoogleSignInClient
+    ): SessionInteractor {
+        return SessionInteractorImpl(sessionRepository, googleSignInClient)
     }
 }

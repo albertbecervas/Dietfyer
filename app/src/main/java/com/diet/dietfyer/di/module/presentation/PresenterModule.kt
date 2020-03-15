@@ -1,7 +1,5 @@
 package com.diet.dietfyer.di.module.presentation
 
-import com.diet.dietfyer.AppApplication
-import com.diet.dietfyer.R
 import com.diet.dietfyer.scenes.fullscreen.presenter.LauncherPresenter
 import com.diet.dietfyer.scenes.fullscreen.presenter.LauncherPresenterImpl
 import com.diet.dietfyer.scenes.fullscreen.router.LauncherRouter
@@ -12,8 +10,6 @@ import com.diet.session.authentication.domain.interactor.SessionInteractor
 import com.diet.session.authentication.presentation.presenter.LoginPresenter
 import com.diet.session.authentication.presentation.presenter.LoginPresenterImpl
 import com.diet.session.authentication.presentation.router.LoginRouter
-import com.diet.session.user.UserDataSource
-import com.diet.session.user.UserSharedPreferences
 import dagger.Module
 import dagger.Provides
 
@@ -23,9 +19,9 @@ open class PresenterModule {
     @Provides
     fun provideLauncherPresenter(
         router: LauncherRouter,
-        userDataSource: UserDataSource
+        sessionInteractor: SessionInteractor
     ): LauncherPresenter {
-        return LauncherPresenterImpl(router, userDataSource)
+        return LauncherPresenterImpl(router, sessionInteractor)
     }
 
     @Provides
@@ -37,9 +33,6 @@ open class PresenterModule {
     open fun provideLoginPresenter(
         router: LoginRouter, interactor: SessionInteractor
     ): LoginPresenter {
-        return LoginPresenterImpl(
-            router, interactor,
-            AppApplication.getInstance().getString(R.string.default_web_client_id)
-        )
+        return LoginPresenterImpl(router, interactor)
     }
 }

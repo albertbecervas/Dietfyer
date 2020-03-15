@@ -1,7 +1,7 @@
 package com.diet.dietfyer.di.module.data
 
-import com.diet.network.UserService
-import com.diet.network.UserServiceImpl
+import com.diet.network.authentication.AuthService
+import com.diet.network.authentication.AuthServiceImpl
 import dagger.Module
 import dagger.Provides
 
@@ -9,7 +9,7 @@ import dagger.Provides
 class NetworkModule {
 
     @Provides
-    fun provideUserService(): UserService {
-        return UserServiceImpl()
+    fun provideUserService(): AuthService {
+        return AuthServiceImpl()
     }
 }

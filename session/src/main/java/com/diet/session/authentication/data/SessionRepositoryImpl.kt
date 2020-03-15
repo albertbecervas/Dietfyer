@@ -1,21 +1,25 @@
 package com.diet.session.authentication.data
 
 import com.abecerra.base.data.BaseRepositoryImpl
-import com.diet.network.UserService
+import com.diet.network.authentication.AuthService
 import com.diet.session.authentication.domain.model.UserForm
 import com.diet.session.authentication.domain.repository.SessionRepository
 import com.diet.session.authentication.domain.repository.SessionRepositoryOutput
 import com.diet.session.user.UserDataSource
 
 class SessionRepositoryImpl(
-    private val userService: UserService,
+    private val authService: AuthService,
     private val userDataSource: UserDataSource
-) :
-    BaseRepositoryImpl<SessionRepositoryOutput>(), SessionRepository {
+) : BaseRepositoryImpl<SessionRepositoryOutput>(), SessionRepository {
+
+    override fun checkIfUserIsLoggedIn(): Boolean {
+        return userDataSource.isUserLogged()
+    }
 
     override fun doLogin(user: UserForm) {
-        userService.login(user.username, user.password, {
+        authService.login(user.username, user.password, {
             userDataSource.setUserLogged()
+            saveLoggedUser(it)
             output?.onSuccessfulSignIn()
         }, {
             output?.onErrorSigningIn()
@@ -23,15 +27,22 @@ class SessionRepositoryImpl(
     }
 
     override fun doSignUpWithEmailAndPassword(user: UserForm) {
-        userService.signUpWithEmailAndPassword(user.username, user.password, {
+        authService.signUpWithEmailAndPassword(user.username, user.password, {
             userDataSource.setUserLogged()
+            saveLoggedUser(it)
             output?.onSuccessfulSignUp()
         }, {
             output?.onErrorSigningUp()
         })
     }
 
-    override fun saveLoggedUser(user: UserForm) {
+    override fun saveLoggedUser(userId: String) {
+        authService.createUserEntry(userId)
         userDataSource.setUserLogged()
+    }
+
+    override fun doLogout() {
+        authService.logout()
+        userDataSource.logOutUser()
     }
 }
