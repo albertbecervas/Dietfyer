@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="@dimen/login_logo_margin_top"
         app:layout_constraintBottom_toTopOf="@+id/cl_signin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,9 +29,9 @@
             android:id="@+id/tv_signin_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Sign In"
-            android:textSize="30sp"
+            android:layout_marginTop="@dimen/login_title_margin_top"
+            android:text="@string/sign_in"
+            android:textSize="@dimen/login_title_text_size"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/app_logo"
             app:layout_constraintStart_toStartOf="@+id/app_logo"
@@ -42,40 +42,30 @@
         android:id="@+id/cl_signin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="@dimen/login_cl_sign_in_margin_top"
         app:layout_constraintBottom_toTopOf="@+id/cl_signup">
 
         <EditText
             android:id="@+id/et_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginTop="12dp"
-            android:hint="e-mail"
+            style="@style/EditTextSessionStyle"
+            android:hint="@string/e_mail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/et_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginTop="12dp"
-            android:hint="password"
+            style="@style/EditTextSessionStyle"
+            android:hint="@string/password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_username" />
 
         <Button
             android:id="@+id/tv_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            style="@style/ButtonSessionStyle"
             android:background="@color/colorPrimary"
-            android:gravity="center"
-            android:text="Login"
-            android:textColor="@color/colorAccent"
+            android:text="@string/login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_password" />
@@ -89,12 +79,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_login">
 
             <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="@dimen/constraint_layout_zero_dp"
-                android:layout_height="2dp"
-                android:layout_margin="16dp"
-                android:background="@color/colorAccent"
-                android:orientation="horizontal"
+                style="@style/DividerSessionStyle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tv_already_have_account"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,17 +89,14 @@
                 android:id="@+id/tv_already_have_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OR"
+                android:text="@string/or"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:layout_width="@dimen/constraint_layout_zero_dp"
-                android:layout_height="2dp"
-                android:layout_margin="16dp"
-                android:background="@color/colorAccent"
+                style="@style/DividerSessionStyle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_already_have_account"
@@ -123,12 +105,7 @@
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/tv_signup_google"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:buttonSize="wide"
-            app:colorScheme="light"
+            style="@style/GoogleSignInButtonSessionStyle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -139,8 +116,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_signup"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="36dp"
+        android:layout_height="@dimen/constraint_layout_zero_dp"
+        android:layout_marginBottom="@dimen/login_need_an_account_margin_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -154,12 +131,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="@dimen/constraint_layout_zero_dp"
-                android:layout_height="2dp"
-                android:layout_margin="16dp"
-                android:background="@color/colorAccent"
-                android:orientation="horizontal"
+                style="@style/DividerSessionStyle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tv_need_account"
                 app:layout_constraintStart_toStartOf="parent"
@@ -169,17 +141,15 @@
                 android:id="@+id/tv_need_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NEED AN ACCOUNT?"
+                android:text="@string/need_an_account"
+                android:textAllCaps="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:layout_width="@dimen/constraint_layout_zero_dp"
-                android:layout_height="2dp"
-                android:layout_margin="16dp"
-                android:background="@color/colorAccent"
+                style="@style/DividerSessionStyle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_need_account"
@@ -188,18 +158,13 @@
 
         <Button
             android:id="@+id/tv_signup_mail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            style="@style/ButtonSessionStyle"
             android:background="@color/colorPrimaryDark"
-            android:gravity="center"
-            android:text="Signup with email"
-            android:textColor="#ffffff"
+            android:text="@string/signup_with_email"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_need_account" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
