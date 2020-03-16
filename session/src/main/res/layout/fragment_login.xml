@@ -62,7 +62,7 @@
             app:layout_constraintTop_toBottomOf="@+id/et_username" />
 
         <Button
-            android:id="@+id/tv_login"
+            android:id="@+id/bt_login"
             style="@style/ButtonSessionStyle"
             android:background="@color/colorPrimary"
             android:text="@string/login"
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_login">
+            app:layout_constraintTop_toBottomOf="@id/bt_login">
 
             <LinearLayout
                 style="@style/DividerSessionStyle"

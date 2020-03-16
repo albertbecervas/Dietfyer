@@ -44,12 +44,13 @@ dependencies {
 
     def testDependencies = rootProject.ext.testing
     testImplementation testDependencies.junit
+    testImplementation testDependencies.mockito
+    androidTestImplementation testDependencies.mockito
+    androidTestImplementation "org.mockito:mockito-android:2.18.3"
     androidTestImplementation testDependencies.android_junit
     androidTestImplementation testDependencies.espresso
     debugImplementation testDependencies.fragment
     androidTestImplementation testDependencies.truth
-    testImplementation testDependencies.mockWebServer
-    androidTestImplementation testDependencies.mockWebServer
 
     def googleDependencies = rootProject.ext.google
     implementation googleDependencies.gson

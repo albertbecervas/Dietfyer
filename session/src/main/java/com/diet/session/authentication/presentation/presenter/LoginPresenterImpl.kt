@@ -20,7 +20,9 @@ class LoginPresenterImpl(
     }
 
     override fun onLoginClicked(username: String, password: String) {
-        sessionInteractor.login(UserForm(username, password))
+        if (checkIfLoginFieldsAreValid(username, password)) {
+            sessionInteractor.login(UserForm(username, password))
+        }
     }
 
     override fun onSignUpWithEmailClicked(username: String, password: String) {
@@ -55,5 +57,20 @@ class LoginPresenterImpl(
 
     override fun showUserSignUpError() {
         showError("Signup Error")
+    }
+
+    private fun checkIfLoginFieldsAreValid(username: String, password: String): Boolean {
+        var valid = true
+
+        if (username.isBlank()) {
+            valid = false
+            getView()?.showErrorOnUsernameField("Required Field")
+        }
+
+        if (password.isBlank()) {
+            valid = false
+            getView()?.showErrorOnPasswordField("Required Field")
+        }
+        return valid
     }
 }

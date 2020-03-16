@@ -19,7 +19,7 @@ class LoginFragment : BasePresenterFragment<LoginPresenter>(R.layout.fragment_lo
     }
 
     private fun initViews() {
-        tv_login.setOnClickListener {
+        bt_login.setOnClickListener {
             presenter?.onLoginClicked(et_username.text.toString(), et_password.text.toString())
         }
         tv_signup_mail.setOnClickListener {
@@ -30,6 +30,14 @@ class LoginFragment : BasePresenterFragment<LoginPresenter>(R.layout.fragment_lo
         tv_signup_google.setOnClickListener {
             presenter?.onSignInWithGoogleClicked()
         }
+    }
+
+    override fun showErrorOnUsernameField(errorMessage: String) {
+        et_username.error = errorMessage
+    }
+
+    override fun showErrorOnPasswordField(errorMessage: String) {
+        et_password.error = errorMessage
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
