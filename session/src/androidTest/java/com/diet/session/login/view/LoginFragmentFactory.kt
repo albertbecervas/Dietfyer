@@ -8,12 +8,9 @@ import com.diet.session.login.presenter.LoginPresenterImpl
 import com.diet.session.login.router.LoginRouter
 import org.mockito.Mockito
 
-class LoginFragmentFactory : FragmentFactory() {
+class LoginFragmentFactory(private val presenter: LoginPresenter) : FragmentFactory() {
 
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
-        val router: LoginRouter = Mockito.mock(LoginRouter::class.java)
-        val interactor: SessionInteractor = Mockito.mock(SessionInteractor::class.java)
-        val presenter: LoginPresenter = LoginPresenterImpl(router, interactor)
         val fragment = LoginFragment()
         fragment.injectPresenter(presenter)
         return fragment

@@ -23,10 +23,10 @@ open class LoginFragment : BasePresenterFragment<LoginPresenter>(R.layout.fragme
         bt_login.setOnClickListener {
             presenter?.onLoginClicked(et_username.text.toString(), et_password.text.toString())
         }
-        tv_signup_mail.setOnClickListener {
+        bt_signup.setOnClickListener {
             presenter?.onSignUpWithEmailClicked()
         }
-        tv_signup_google.setOnClickListener {
+        bt_signin_google.setOnClickListener {
             presenter?.onSignInWithGoogleClicked()
         }
     }

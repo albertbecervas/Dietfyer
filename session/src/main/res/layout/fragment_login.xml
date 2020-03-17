@@ -104,7 +104,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.gms.common.SignInButton
-            android:id="@+id/tv_signup_google"
+            android:id="@+id/bt_signin_google"
             style="@style/GoogleSignInButtonSessionStyle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -157,7 +157,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:id="@+id/tv_signup_mail"
+            android:id="@+id/bt_signup"
             style="@style/ButtonSessionStyle"
             android:background="@color/colorPrimaryDark"
             android:text="@string/signup_with_email"
