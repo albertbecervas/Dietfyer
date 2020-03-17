@@ -1,8 +1,8 @@
 package com.diet.dietfyer.di.module.presentation
 
-import com.diet.dietfyer.scenes.fullscreen.presenter.LauncherPresenter
-import com.diet.dietfyer.scenes.fullscreen.presenter.LauncherPresenterImpl
-import com.diet.dietfyer.scenes.fullscreen.router.LauncherRouter
+import com.diet.dietfyer.scenes.launcher.presenter.LauncherPresenter
+import com.diet.dietfyer.scenes.launcher.presenter.LauncherPresenterImpl
+import com.diet.dietfyer.scenes.launcher.router.LauncherRouter
 import com.diet.dietfyer.scenes.main.presenter.MainPresenter
 import com.diet.dietfyer.scenes.main.presenter.MainPresenterImpl
 import com.diet.dietfyer.scenes.main.router.MainRouter

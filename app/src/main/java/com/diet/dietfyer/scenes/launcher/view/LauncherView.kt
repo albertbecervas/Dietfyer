@@ -1,4 +1,4 @@
-package com.diet.dietfyer.scenes.fullscreen.view
+package com.diet.dietfyer.scenes.launcher.view
 
 import com.abecerra.base.presentation.BaseView
 

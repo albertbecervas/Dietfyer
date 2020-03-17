@@ -4,7 +4,7 @@ import com.diet.dietfyer.navigation.navigator.Navigator
 import com.diet.dietfyer.navigation.routers.LauncherRouterImpl
 import com.diet.dietfyer.navigation.routers.LoginRouterImpl
 import com.diet.dietfyer.navigation.routers.MainRouterImpl
-import com.diet.dietfyer.scenes.fullscreen.router.LauncherRouter
+import com.diet.dietfyer.scenes.launcher.router.LauncherRouter
 import com.diet.dietfyer.scenes.main.router.MainRouter
 import com.diet.session.login.router.LoginRouter
 import com.diet.session.login.view.LoginFragment

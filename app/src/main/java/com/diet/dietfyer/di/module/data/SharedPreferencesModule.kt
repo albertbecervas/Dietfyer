@@ -1,8 +1,8 @@
 package com.diet.dietfyer.di.module.data
 
 import android.content.Context
-import com.diet.session.user.UserDataSource
-import com.diet.session.user.UserSharedPreferences
+import com.diet.session.user.data.UserDataSource
+import com.diet.session.user.data.UserSharedPreferences
 import dagger.Module
 import dagger.Provides
 

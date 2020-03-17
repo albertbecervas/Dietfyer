@@ -1,4 +1,4 @@
-package com.diet.dietfyer.scenes.fullscreen.router
+package com.diet.dietfyer.scenes.launcher.router
 
 interface LauncherRouter {
 

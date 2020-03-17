@@ -5,7 +5,7 @@ import com.diet.network.authentication.AuthService
 import com.diet.session.authentication.domain.model.UserForm
 import com.diet.session.authentication.domain.repository.SessionRepository
 import com.diet.session.authentication.domain.repository.SessionRepositoryOutput
-import com.diet.session.user.UserDataSource
+import com.diet.session.user.data.UserDataSource
 
 class SessionRepositoryImpl(
     private val authService: AuthService,

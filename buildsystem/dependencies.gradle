@@ -17,7 +17,10 @@ ext {
 
     firebase = [
             analytics  : "com.google.firebase:firebase-analytics:$firebase.analytics",
-            crashlytics: "com.google.firebase:firebase-crashlytics:$firebase.crashlytics"
+            crashlytics: "com.google.firebase:firebase-crashlytics:$firebase.crashlytics",
+            firestore  : "com.google.firebase:firebase-firestore:$firebase.firestore",
+            auth       : "com.google.firebase:firebase-auth:$firebase.auth",
+            google_auth: "com.google.android.gms:play-services-auth:$firebase.google_auth"
     ]
 
     modules = [
@@ -28,17 +31,22 @@ ext {
             session     : project(':session')
     ]
 
+    components = [
+            bottom_nav: "com.aurelhubert:ahbottomnavigation:2.3.4"
+    ]
+
     testing = [
-            junit         : "junit:junit:$testing.junit",
-            android_junit : "androidx.test.ext:junit:$testing.android_junit",
-            espresso      : "androidx.test.espresso:espresso-core:$testing.espresso",
-            mockito       : "org.mockito:mockito-core:$testing.mockito",
-            fragment      : "androidx.fragment:fragment-testing:$testing.fragment",
-            truth         : "com.google.truth:truth:$testing.truth",
-            mockWebServer : "com.squareup.okhttp3:mockwebserver:$testing.mockWebServer",
-            mockito_kotlin: "com.nhaarman:mockito-kotlin:$testing.mockito_kotlin",
-            rules         : "androidx.test:rules:$testing.rules",
-            dagger        : "com.google.dagger:dagger-compiler:$dagger.dagger2_version",
+            junit          : "junit:junit:$testing.junit",
+            android_junit  : "androidx.test.ext:junit:$testing.android_junit",
+            espresso       : "androidx.test.espresso:espresso-core:$testing.espresso",
+            mockito        : "org.mockito:mockito-core:$testing.mockito",
+            mockito_android: "org.mockito:mockito-android:$testing.mockito_android",
+            fragment       : "androidx.fragment:fragment-testing:$testing.fragment",
+            truth          : "com.google.truth:truth:$testing.truth",
+            mockWebServer  : "com.squareup.okhttp3:mockwebserver:$testing.mockWebServer",
+            mockito_kotlin : "com.nhaarman:mockito-kotlin:$testing.mockito_kotlin",
+            rules          : "androidx.test:rules:$testing.rules",
+            dagger         : "com.google.dagger:dagger-compiler:$dagger.dagger2_version",
     ]
 
     dagger = [

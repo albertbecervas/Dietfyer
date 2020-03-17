@@ -7,6 +7,7 @@ dependencies {
     implementation modulesDependencies.appResources
     implementation modulesDependencies.network
 
-    implementation 'com.google.android.gms:play-services-auth:17.0.0'
-    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    def firebaseDependencies = rootProject.ext.firebase
+    implementation firebaseDependencies.auth
+    implementation firebaseDependencies.google_auth
 }

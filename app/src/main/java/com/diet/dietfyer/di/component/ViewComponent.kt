@@ -9,7 +9,7 @@ import com.diet.dietfyer.di.module.presentation.NavigationModule
 import com.diet.dietfyer.di.module.presentation.PresenterModule
 import com.diet.dietfyer.di.module.presentation.RouterModule
 import com.diet.dietfyer.di.module.presentation.ViewModule
-import com.diet.dietfyer.scenes.fullscreen.view.LauncherActivity
+import com.diet.dietfyer.scenes.launcher.view.LauncherActivity
 import com.diet.dietfyer.scenes.main.view.MainActivity
 import dagger.Component
 

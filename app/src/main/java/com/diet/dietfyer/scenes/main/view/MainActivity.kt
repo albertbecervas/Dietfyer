@@ -8,7 +8,7 @@ import com.abecerra.components.bottomnavigation.BottomNavigationListener
 import com.diet.dietfyer.R
 import com.diet.dietfyer.di.component.DaggerViewComponent
 import com.diet.dietfyer.di.module.presentation.ViewModule
-import com.diet.dietfyer.scenes.fullscreen.view.LauncherActivity
+import com.diet.dietfyer.scenes.launcher.view.LauncherActivity
 import com.diet.dietfyer.scenes.main.presenter.MainPresenter
 import com.diet.session.authentication.domain.interactor.SessionInteractor
 import kotlinx.android.synthetic.main.activity_main.*

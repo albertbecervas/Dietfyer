@@ -28,8 +28,8 @@ dependencies {
     def firebaseDependencies = rootProject.ext.firebase
     implementation firebaseDependencies.analytics
     implementation firebaseDependencies.crashlytics
-    implementation 'com.google.android.gms:play-services-auth:17.0.0'
-    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation firebaseDependencies.auth
+    implementation firebaseDependencies.google_auth
 
     def modulesDependencies = rootProject.ext.modules
     implementation modulesDependencies.appResources
@@ -42,8 +42,6 @@ dependencies {
     implementation daggerDependencies.dagger
     implementation daggerDependencies.daggerAndroid
     implementation daggerDependencies.daggerAndroidSupport
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     kapt daggerDependencies.daggerAndroidProcessor
     kapt daggerDependencies.daggerCompiler
     annotationProcessor daggerDependencies.daggerCompiler

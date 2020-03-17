@@ -17,7 +17,7 @@ import com.diet.session.authentication.domain.repository.SessionRepository
 import com.diet.session.login.presenter.LoginPresenter
 import com.diet.session.login.presenter.LoginPresenterImpl
 import com.diet.session.login.router.LoginRouter
-import com.diet.session.user.UserDataSource
+import com.diet.session.user.data.UserDataSource
 import com.diet.session.utils.EditTextViewMatcher.isErrorShown
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.nhaarman.mockito_kotlin.any

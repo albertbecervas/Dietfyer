@@ -1,9 +1,9 @@
-package com.diet.dietfyer.scenes.fullscreen.presenter
+package com.diet.dietfyer.scenes.launcher.presenter
 
 import android.os.Handler
 import com.abecerra.base.presentation.BasePresenterImpl
-import com.diet.dietfyer.scenes.fullscreen.router.LauncherRouter
-import com.diet.dietfyer.scenes.fullscreen.view.LauncherView
+import com.diet.dietfyer.scenes.launcher.router.LauncherRouter
+import com.diet.dietfyer.scenes.launcher.view.LauncherView
 import com.diet.session.authentication.domain.interactor.SessionInteractor
 
 class LauncherPresenterImpl(

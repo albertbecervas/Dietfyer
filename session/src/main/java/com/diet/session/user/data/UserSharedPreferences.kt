@@ -1,9 +1,10 @@
-package com.diet.session.user
+package com.diet.session.user.data
 
 import android.content.Context
 import android.content.SharedPreferences
 
-class UserSharedPreferences(context: Context) : UserDataSource {
+class UserSharedPreferences(context: Context) :
+    UserDataSource {
 
     companion object {
         const val USER_SHARED_PREFERENCES: String = "userPrefs"

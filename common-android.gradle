@@ -52,11 +52,11 @@ dependencies {
     testImplementation testDependencies.junit
     testImplementation testDependencies.mockito_kotlin
     androidTestImplementation testDependencies.mockito_kotlin
-    androidTestImplementation "org.mockito:mockito-android:2.18.3"
+    androidTestImplementation testDependencies.mockito_android
     androidTestImplementation testDependencies.android_junit
     androidTestImplementation testDependencies.espresso
-    debugImplementation testDependencies.fragment
     androidTestImplementation testDependencies.truth
+    debugImplementation testDependencies.fragment
 
     def googleDependencies = rootProject.ext.google
     implementation googleDependencies.gson
