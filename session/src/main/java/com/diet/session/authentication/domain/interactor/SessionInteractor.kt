@@ -6,13 +6,13 @@ import com.diet.session.authentication.domain.model.UserForm
 
 interface SessionInteractor : BaseInteractor<SessionInteractorOutput> {
 
-    fun login(user: UserForm)
+    fun login(username: String, password: String)
 
     fun signInWithGoogle()
 
     fun onSignInWithGoogleResult(intent: Intent?)
 
-    fun signUp(user: UserForm)
+    fun signUp(username: String, password: String)
 
     fun saveUserLogged(userId: String)
 

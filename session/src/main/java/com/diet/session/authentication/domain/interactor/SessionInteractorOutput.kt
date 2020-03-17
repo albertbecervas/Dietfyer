@@ -8,6 +8,10 @@ interface SessionInteractorOutput {
 
     fun userIsSignedUp()
 
+    fun userNameIsEmpty()
+
+    fun passwordIsEmpty()
+
     fun launchGoogleSignInIntent(intent: Intent)
 
     fun showUserLoginError()

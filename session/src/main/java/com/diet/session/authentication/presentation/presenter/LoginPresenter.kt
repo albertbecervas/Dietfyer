@@ -8,9 +8,9 @@ interface LoginPresenter : BasePresenter<LoginView> {
 
     fun onLoginClicked(username: String, password: String)
 
-    fun onSignUpWithEmailClicked(username: String, password: String)
+    fun onSignUpWithEmailClicked()
 
     fun onSignInWithGoogleClicked()
 
-    fun onSignInWithGoogleResponse(data: Intent?)
+    fun onSignInWithGoogleResult(data: Intent?)
 }

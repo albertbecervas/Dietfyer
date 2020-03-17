@@ -26,8 +26,10 @@ class SessionInteractorImpl(
         return sessionRepository.checkIfUserIsLoggedIn()
     }
 
-    override fun login(user: UserForm) {
-        sessionRepository.doLogin(user)
+    override fun login(username: String, password: String) {
+        if (checkIfLoginFieldsAreValid(username, password)) {
+            sessionRepository.doLogin(UserForm(username, password))
+        }
     }
 
     override fun signInWithGoogle() {
@@ -35,8 +37,8 @@ class SessionInteractorImpl(
         output?.launchGoogleSignInIntent(signInIntent)
     }
 
-    override fun signUp(user: UserForm) {
-        sessionRepository.doSignUpWithEmailAndPassword(user)
+    override fun signUp(username: String, password: String) {
+        sessionRepository.doSignUpWithEmailAndPassword(UserForm(username, password))
     }
 
     override fun saveUserLogged(userId: String) {
@@ -83,5 +85,20 @@ class SessionInteractorImpl(
         } catch (e: ApiException) {
             e.localizedMessage?.let { output?.showUserLoginError() }
         }
+    }
+
+    private fun checkIfLoginFieldsAreValid(username: String, password: String): Boolean {
+        var valid = true
+
+        if (username.isBlank()) {
+            valid = false
+            output?.userNameIsEmpty()
+        }
+
+        if (password.isBlank()) {
+            valid = false
+            output?.passwordIsEmpty()
+        }
+        return valid
     }
 }

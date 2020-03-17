@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 
 interface LoginRouter {
 
-    fun onGoogleSignUpClicked(intent: Intent, resultCode: Int, fragment: Fragment)
+    fun launchGoogleSignIn(intent: Intent, resultCode: Int, fragment: Fragment)
+
+    fun onSignUpClicked()
 
     fun onUserLogged()
 }

@@ -9,8 +9,12 @@ import com.diet.session.authentication.presentation.view.LoginFragment
 
 class LoginRouterImpl(private val navigator: Navigator) : LoginRouter {
 
-    override fun onGoogleSignUpClicked(intent: Intent, resultCode: Int, fragment: Fragment) {
+    override fun launchGoogleSignIn(intent: Intent, resultCode: Int, fragment: Fragment) {
         navigator.startActivityForResult(intent, LoginFragment.GOOGLE_SIGN_IN, fragment)
+    }
+
+    override fun onSignUpClicked() {
+
     }
 
     override fun onUserLogged() {
