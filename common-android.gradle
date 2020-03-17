@@ -17,7 +17,19 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
     }
 
+    signingConfigs {
+        development {
+            storeFile file("../keystore/dietfyer_debug.keystore")
+            storePassword "dietfyer"
+            keyAlias "dietfyer_debug"
+            keyPassword "dietfyer"
+        }
+    }
+
     buildTypes {
+        debug{
+            signingConfig signingConfigs.development
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
