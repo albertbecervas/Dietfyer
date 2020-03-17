@@ -8,7 +8,7 @@ interface SessionInteractor : BaseInteractor<SessionInteractorOutput> {
 
     fun login(username: String, password: String)
 
-    fun signInWithGoogle()
+    fun getGoogleSignInIntent(): Intent
 
     fun onSignInWithGoogleResult(intent: Intent?)
 

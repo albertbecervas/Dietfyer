@@ -1,4 +1,4 @@
-package com.diet.session.authentication.presentation.view
+package com.diet.session.login.view
 
 import androidx.fragment.app.Fragment
 import com.abecerra.base.presentation.BaseView

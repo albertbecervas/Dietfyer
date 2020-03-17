@@ -44,7 +44,7 @@ dependencies {
 
     def testDependencies = rootProject.ext.testing
     testImplementation testDependencies.junit
-    testImplementation testDependencies.mockito
+    testImplementation testDependencies.mockito_kotlin
     androidTestImplementation testDependencies.mockito
     androidTestImplementation "org.mockito:mockito-android:2.18.3"
     androidTestImplementation testDependencies.android_junit

@@ -1,4 +1,4 @@
-package com.diet.session.authentication.presentation.view
+package com.diet.session.login.view
 
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.espresso.Espresso.onView

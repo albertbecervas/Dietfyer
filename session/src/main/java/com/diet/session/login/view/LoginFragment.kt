@@ -1,4 +1,4 @@
-package com.diet.session.authentication.presentation.view
+package com.diet.session.login.view
 
 
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.abecerra.base.presentation.BasePresenterFragment
 import com.diet.session.R
-import com.diet.session.authentication.presentation.presenter.LoginPresenter
+import com.diet.session.login.presenter.LoginPresenter
 import kotlinx.android.synthetic.main.fragment_login.*
 
 open class LoginFragment : BasePresenterFragment<LoginPresenter>(R.layout.fragment_login), LoginView {

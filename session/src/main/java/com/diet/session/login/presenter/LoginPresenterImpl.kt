@@ -1,12 +1,12 @@
-package com.diet.session.authentication.presentation.presenter
+package com.diet.session.login.presenter
 
 import android.content.Intent
 import com.abecerra.base.presentation.BasePresenterImpl
 import com.diet.session.authentication.domain.interactor.SessionInteractor
 import com.diet.session.authentication.domain.interactor.SessionInteractorOutput
-import com.diet.session.authentication.presentation.router.LoginRouter
-import com.diet.session.authentication.presentation.view.LoginFragment.Companion.GOOGLE_SIGN_IN
-import com.diet.session.authentication.presentation.view.LoginView
+import com.diet.session.login.router.LoginRouter
+import com.diet.session.login.view.LoginFragment.Companion.GOOGLE_SIGN_IN
+import com.diet.session.login.view.LoginView
 
 class LoginPresenterImpl(
     private val router: LoginRouter,
@@ -26,7 +26,9 @@ class LoginPresenterImpl(
     }
 
     override fun onSignInWithGoogleClicked() {
-        sessionInteractor.signInWithGoogle()
+        this.getView()?.getViewFragment()?.let {
+            router.launchGoogleSignIn(sessionInteractor.getGoogleSignInIntent(), GOOGLE_SIGN_IN, it)
+        }
     }
 
     override fun userIsLogged() {
@@ -35,13 +37,6 @@ class LoginPresenterImpl(
 
     override fun userIsSignedUp() {
         router.onUserLogged()
-    }
-
-    override fun launchGoogleSignInIntent(intent: Intent) {
-        this.getView()?.getViewFragment()?.let {
-            router.launchGoogleSignIn(intent, GOOGLE_SIGN_IN, it)
-        }
-
     }
 
     override fun onSignInWithGoogleResult(data: Intent?) {

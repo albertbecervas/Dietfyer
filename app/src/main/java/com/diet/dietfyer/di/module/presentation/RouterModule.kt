@@ -6,8 +6,8 @@ import com.diet.dietfyer.navigation.routers.LoginRouterImpl
 import com.diet.dietfyer.navigation.routers.MainRouterImpl
 import com.diet.dietfyer.scenes.fullscreen.router.LauncherRouter
 import com.diet.dietfyer.scenes.main.router.MainRouter
-import com.diet.session.authentication.presentation.router.LoginRouter
-import com.diet.session.authentication.presentation.view.LoginFragment
+import com.diet.session.login.router.LoginRouter
+import com.diet.session.login.view.LoginFragment
 import dagger.Module
 import dagger.Provides
 

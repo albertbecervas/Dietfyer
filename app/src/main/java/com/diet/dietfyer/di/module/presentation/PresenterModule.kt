@@ -7,9 +7,9 @@ import com.diet.dietfyer.scenes.main.presenter.MainPresenter
 import com.diet.dietfyer.scenes.main.presenter.MainPresenterImpl
 import com.diet.dietfyer.scenes.main.router.MainRouter
 import com.diet.session.authentication.domain.interactor.SessionInteractor
-import com.diet.session.authentication.presentation.presenter.LoginPresenter
-import com.diet.session.authentication.presentation.presenter.LoginPresenterImpl
-import com.diet.session.authentication.presentation.router.LoginRouter
+import com.diet.session.login.presenter.LoginPresenter
+import com.diet.session.login.presenter.LoginPresenterImpl
+import com.diet.session.login.router.LoginRouter
 import dagger.Module
 import dagger.Provides
 

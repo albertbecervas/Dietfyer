@@ -12,8 +12,6 @@ interface SessionInteractorOutput {
 
     fun passwordIsEmpty()
 
-    fun launchGoogleSignInIntent(intent: Intent)
-
     fun showUserLoginError()
 
     fun showUserSignUpError()

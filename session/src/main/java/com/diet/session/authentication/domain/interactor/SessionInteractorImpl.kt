@@ -27,18 +27,17 @@ class SessionInteractorImpl(
     }
 
     override fun login(username: String, password: String) {
-        if (checkIfLoginFieldsAreValid(username, password)) {
+        if (checkIfFieldsAreValid(username, password)) {
             sessionRepository.doLogin(UserForm(username, password))
         }
     }
 
-    override fun signInWithGoogle() {
-        val signInIntent: Intent = googleSignInClient.signInIntent
-        output?.launchGoogleSignInIntent(signInIntent)
-    }
+    override fun getGoogleSignInIntent(): Intent = googleSignInClient.signInIntent
 
     override fun signUp(username: String, password: String) {
-        sessionRepository.doSignUpWithEmailAndPassword(UserForm(username, password))
+        if (checkIfFieldsAreValid(username, password)) {
+            sessionRepository.doSignUpWithEmailAndPassword(UserForm(username, password))
+        }
     }
 
     override fun saveUserLogged(userId: String) {
@@ -87,7 +86,7 @@ class SessionInteractorImpl(
         }
     }
 
-    private fun checkIfLoginFieldsAreValid(username: String, password: String): Boolean {
+    private fun checkIfFieldsAreValid(username: String, password: String): Boolean {
         var valid = true
 
         if (username.isBlank()) {

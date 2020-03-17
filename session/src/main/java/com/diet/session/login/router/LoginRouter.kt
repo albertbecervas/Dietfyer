@@ -1,4 +1,4 @@
-package com.diet.session.authentication.presentation.router
+package com.diet.session.login.router
 
 import android.content.Intent
 import androidx.fragment.app.Fragment

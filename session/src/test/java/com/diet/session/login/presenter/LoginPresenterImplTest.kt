@@ -1,10 +1,10 @@
-package com.diet.session.authentication.presentation.presenter
+package com.diet.session.login.presenter
 
 import android.content.Intent
 import com.diet.session.authentication.domain.interactor.SessionInteractor
-import com.diet.session.authentication.presentation.router.LoginRouter
-import com.diet.session.authentication.presentation.view.LoginFragment
-import com.diet.session.authentication.presentation.view.LoginView
+import com.diet.session.login.router.LoginRouter
+import com.diet.session.login.view.LoginFragment
+import com.diet.session.login.view.LoginView
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
@@ -50,7 +50,9 @@ class LoginPresenterImplTest {
     @Test
     fun onSignInWithGoogleClickedCallsInteractor() {
         presenter.onSignInWithGoogleClicked()
-        verify(sessionInteractor, times(1)).signInWithGoogle()
+        val intent = verify(sessionInteractor, times(1))
+            .getGoogleSignInIntent()
+        verify(loginRouter).launchGoogleSignIn(intent, LoginFragment.GOOGLE_SIGN_IN, loginFragment)
     }
 
     @Test
@@ -61,9 +63,7 @@ class LoginPresenterImplTest {
 
     @Test
     fun launchGoogleSignInIntent() {
-        val intent = mock(Intent::class.java)
-        presenter.launchGoogleSignInIntent(intent)
-        verify(loginRouter).launchGoogleSignIn(intent, LoginFragment.GOOGLE_SIGN_IN, loginFragment)
+
     }
 
     @Test
