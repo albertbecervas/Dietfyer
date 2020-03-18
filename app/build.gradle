@@ -10,6 +10,14 @@ android {
     defaultConfig {
         applicationId 'com.diet.dietfyer'
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -20,6 +28,8 @@ dependencies {
     def firebaseDependencies = rootProject.ext.firebase
     implementation firebaseDependencies.analytics
     implementation firebaseDependencies.crashlytics
+    implementation firebaseDependencies.auth
+    implementation firebaseDependencies.google_auth
 
     def modulesDependencies = rootProject.ext.modules
     implementation modulesDependencies.appResources
@@ -32,8 +42,6 @@ dependencies {
     implementation daggerDependencies.dagger
     implementation daggerDependencies.daggerAndroid
     implementation daggerDependencies.daggerAndroidSupport
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     kapt daggerDependencies.daggerAndroidProcessor
     kapt daggerDependencies.daggerCompiler
     annotationProcessor daggerDependencies.daggerCompiler

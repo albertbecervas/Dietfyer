@@ -6,5 +6,7 @@ dependencies {
     implementation modulesDependencies.base
     implementation modulesDependencies.appResources
 
-    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    def firebaseDependencies = rootProject.ext.firebase
+    implementation firebaseDependencies.auth
+    implementation firebaseDependencies.firestore
 }

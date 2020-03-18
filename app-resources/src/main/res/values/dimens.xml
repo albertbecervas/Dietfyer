@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="constraint_layout_zero_dp">0dp</dimen>
+
+    <dimen name="login_logo_margin_top">76dp</dimen>
+    <dimen name="login_title_text_size">30sp</dimen>
+    <dimen name="login_title_margin_top">8dp</dimen>
+    <dimen name="login_cl_sign_in_margin_top">36dp</dimen>
+    <dimen name="login_divider_height">2dp</dimen>
+    <dimen name="login_need_an_account_margin_bottom">36dp</dimen>
+    <dimen name="login_divider_margin">16dp</dimen>
+    <dimen name="login_sign_in_google_button_margin_side">16dp</dimen>
 </resources>
