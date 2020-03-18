@@ -1,50 +1,50 @@
 {
   "project_info": {
-    "project_number": "432465320119",
-    "firebase_url": "https://dietfyer.firebaseio.com",
-    "project_id": "dietfyer",
-    "storage_bucket": "dietfyer.appspot.com"
+    "project_number": "850040172576",
+    "firebase_url": "https://dietfyer-24c3e.firebaseio.com",
+    "project_id": "dietfyer-24c3e",
+    "storage_bucket": "dietfyer-24c3e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:432465320119:android:6ca277449c9a94a5745532",
+        "mobilesdk_app_id": "1:850040172576:android:4376261df181521347cc45",
         "android_client_info": {
           "package_name": "com.diet.dietfyer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "432465320119-mkn2hgaht6jc97tm65hi047d3q50ad4b.apps.googleusercontent.com",
+          "client_id": "850040172576-v7r8fl6q7lnslk79vhjodfkrp284eukj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.diet.dietfyer",
-            "certificate_hash": "11a8a332c714c0daf00ecbe1d60ea7c9022d9717"
+            "certificate_hash": "50b35d702c3fb694bb78a689c3e225695b710e01"
           }
         },
         {
-          "client_id": "432465320119-95r7k5ik0gqirgdb8kbfm2s1cricsfg2.apps.googleusercontent.com",
+          "client_id": "850040172576-dhnv4pmmd5nh4enntv3f4iomb1h8hraq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.diet.dietfyer",
-            "certificate_hash": "68b341c506c9c0fa844fd849d982da93c1b0e18f"
+            "certificate_hash": "4ba40b27a63f366347b3c3bdbe65ee7ec2d37fe0"
           }
         },
         {
-          "client_id": "432465320119-mgma3v15nj0971qq3tblnf2j02uh707i.apps.googleusercontent.com",
+          "client_id": "850040172576-07ci46vg0443233g6791s2ccjb6esot6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBvgp8AFsCtKcLm1SWvU4bIQTRtox5ydeo"
+          "current_key": "AIzaSyCg1NkEePd7FtCbl_75A-EHy5lX6bFqKMo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "432465320119-mgma3v15nj0971qq3tblnf2j02uh707i.apps.googleusercontent.com",
+              "client_id": "850040172576-07ci46vg0443233g6791s2ccjb6esot6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

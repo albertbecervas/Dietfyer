@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="EditTextSessionStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">@dimen/constraint_layout_zero_dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">20dp</item>
+    </style>
+
+    <style name="ButtonSessionStyle" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">@dimen/constraint_layout_zero_dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="GoogleSignInButtonSessionStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/login_sign_in_google_button_margin_side</item>
+        <item name="android:layout_marginEnd">@dimen/login_sign_in_google_button_margin_side</item>
+        <item name="buttonSize">wide</item>
+        <item name="colorScheme">light</item>
+    </style>
+
+    <style name="DividerSessionStyle">
+        <item name="android:layout_width">@dimen/constraint_layout_zero_dp</item>
+        <item name="android:layout_height">@dimen/login_divider_height</item>
+        <item name="android:layout_margin">@dimen/login_divider_margin</item>
+        <item name="android:background">@color/colorAccent</item>
+    </style>
+</resources>

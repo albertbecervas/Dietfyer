@@ -7,6 +7,8 @@ import kotlin.reflect.KClass
 interface Navigator {
 
     fun startActivity(clazz: Class<*>)
+    
+    fun startActivityFinishingCurrent(clazz: Class<*>)
 
     fun startActivityForResult(intent: Intent, resultCode: Int, fragment: Fragment)
 

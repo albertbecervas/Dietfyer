@@ -6,8 +6,7 @@ import com.diet.dietfyer.scenes.main.view.MainView
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.verify
+import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
 
 class MainPresenterImplTest {
@@ -29,8 +28,8 @@ class MainPresenterImplTest {
 
     @Test
     fun loadHomeFragment() {
-        `when`(presenter.loadHomeFragment())
-            .then { verify(router).loadDefaultFragment(R.id.base_fl) }
+        presenter.loadHomeFragment()
+        verify(router, times(1)).loadDefaultFragment(R.id.base_fl)
     }
 
     @Test

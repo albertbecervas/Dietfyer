@@ -17,7 +17,19 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
     }
 
+    signingConfigs {
+        development {
+            storeFile file("../keystore/dietfyer_debug.keystore")
+            storePassword "dietfyer"
+            keyAlias "dietfyer_debug"
+            keyPassword "dietfyer"
+        }
+    }
+
     buildTypes {
+        debug{
+            signingConfig signingConfigs.development
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -28,6 +40,12 @@ android {
         sourceCompatibility = "8"
     }
     kotlinOptions { jvmTarget = "1.8" }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -44,12 +62,13 @@ dependencies {
 
     def testDependencies = rootProject.ext.testing
     testImplementation testDependencies.junit
+    testImplementation testDependencies.mockito_kotlin
+    androidTestImplementation testDependencies.mockito_kotlin
+    androidTestImplementation testDependencies.mockito_android
     androidTestImplementation testDependencies.android_junit
     androidTestImplementation testDependencies.espresso
-    debugImplementation testDependencies.fragment
     androidTestImplementation testDependencies.truth
-    testImplementation testDependencies.mockWebServer
-    androidTestImplementation testDependencies.mockWebServer
+    debugImplementation testDependencies.fragment
 
     def googleDependencies = rootProject.ext.google
     implementation googleDependencies.gson
