@@ -8,7 +8,9 @@ ext {
             androidx_support_legacy: "androidx.legacy:legacy-support-v4:$androidx.support",
             multidex               : "androidx.multidex:multidex:$multidexVersion",
             constraintLayout       : "androidx.constraintlayout:constraintlayout:$androidx.constraintLayout",
-            recyclerView           : "androidx.recyclerview:recyclerview:$androidx.recyclerView"
+            recyclerView           : "androidx.recyclerview:recyclerview:$androidx.recyclerView",
+            cardview               : "androidx.cardview:cardview:$androidx.cardview",
+            material               : "com.google.android.material:material:$google.material"
     ]
 
     google = [
@@ -28,7 +30,8 @@ ext {
             appResources: project(':app-resources'),
             components  : project(':components'),
             network     : project(':network'),
-            session     : project(':session')
+            session     : project(':session'),
+            dairy       : project(':dairy')
     ]
 
     components = [

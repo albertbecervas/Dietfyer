@@ -13,6 +13,10 @@ class MainPresenterImpl(private val router: MainRouter) :
         router.loadDefaultFragment(R.id.base_fl)
     }
 
+    override fun loadDairyFragment() {
+        router.loadDairyFragment(R.id.base_fl)
+    }
+
     override fun getNavigationItems(): List<NavigationItem> {
         val items = arrayListOf<NavigationItem>()
         items.add(NavigationItem("home", R.mipmap.ic_launcher_round))

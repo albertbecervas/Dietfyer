@@ -41,6 +41,9 @@ class MainActivity : BaseActivity(), MainView {
             override fun onItemSelected(position: Int) {
                 Toast.makeText(this@MainActivity, "$position", Toast.LENGTH_SHORT).show()
                 when (position) {
+                    DAIRY_POSITION -> {
+                        presenter.loadDairyFragment()
+                    }
                     4 -> {
                         sessionInteractor.logout()
                         startActivity(Intent(this@MainActivity, LauncherActivity::class.java))
@@ -49,5 +52,9 @@ class MainActivity : BaseActivity(), MainView {
                 }
             }
         })
+    }
+
+    companion object {
+        const val DAIRY_POSITION = 1
     }
 }

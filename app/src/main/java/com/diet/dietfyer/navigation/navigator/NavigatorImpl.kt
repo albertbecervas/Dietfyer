@@ -29,6 +29,15 @@ class NavigatorImpl(private val context: WeakReference<Context?>?) : Navigator {
         when (context?.get()) {
             is AppCompatActivity -> {
                 (context.get() as AppCompatActivity).supportFragmentManager.beginTransaction()
+                    .replace(layout, fragment).commit()
+            }
+        }
+    }
+
+    override fun addFragment(fragment: Fragment, layout: Int) {
+        when (context?.get()) {
+            is AppCompatActivity -> {
+                (context.get() as AppCompatActivity).supportFragmentManager.beginTransaction()
                     .add(layout, fragment).commit()
             }
         }

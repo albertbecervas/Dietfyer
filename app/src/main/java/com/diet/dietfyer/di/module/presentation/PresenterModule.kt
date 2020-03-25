@@ -1,5 +1,9 @@
 package com.diet.dietfyer.di.module.presentation
 
+import com.diet.dairy.domain.interactor.DairyInteractor
+import com.diet.dairy.presentation.presenter.DairyPresenter
+import com.diet.dairy.presentation.presenter.DairyPresenterImpl
+import com.diet.dairy.presentation.router.DairyRouter
 import com.diet.dietfyer.scenes.launcher.presenter.LauncherPresenter
 import com.diet.dietfyer.scenes.launcher.presenter.LauncherPresenterImpl
 import com.diet.dietfyer.scenes.launcher.router.LauncherRouter
@@ -34,5 +38,12 @@ open class PresenterModule {
         router: LoginRouter, interactor: SessionInteractor
     ): LoginPresenter {
         return LoginPresenterImpl(router, interactor)
+    }
+
+    @Provides
+    open fun provideDairyPresenter(
+        router: DairyRouter, interactor: DairyInteractor
+    ): DairyPresenter {
+        return DairyPresenterImpl(router, interactor)
     }
 }

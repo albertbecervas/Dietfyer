@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="summary">Summary</string>
+    <string name="calories">Calories</string>
+    <string name="protein">Protein</string>
+    <string name="carbohydrates">Carbh</string>
+    <string name="fat">Fat</string>
+</resources>
