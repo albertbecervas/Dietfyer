@@ -1,6 +1,6 @@
 package com.diet.dietfyer.navigation.routers
 
-import com.diet.dairy.presentation.router.DairyRouter
+import com.diet.diary.presentation.router.DiaryRouter
 
-class DairyRouterImpl : DairyRouter {
+class diaryRouterImpl : DiaryRouter {
 }

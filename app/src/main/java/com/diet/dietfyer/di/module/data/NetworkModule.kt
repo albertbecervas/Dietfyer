@@ -2,8 +2,8 @@ package com.diet.dietfyer.di.module.data
 
 import com.diet.network.authentication.AuthService
 import com.diet.network.authentication.AuthServiceImpl
-import com.diet.network.dairy.DairyService
-import com.diet.network.dairy.DairyServiceImpl
+import com.diet.network.diary.DiaryService
+import com.diet.network.diary.DiaryServiceImpl
 import dagger.Module
 import dagger.Provides
 
@@ -16,7 +16,7 @@ class NetworkModule {
     }
 
     @Provides
-    fun provideDairyService(): DairyService {
-        return DairyServiceImpl()
+    fun provideDiaryService(): DiaryService {
+        return DiaryServiceImpl()
     }
 }

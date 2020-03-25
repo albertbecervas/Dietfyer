@@ -1,9 +1,9 @@
 package com.diet.dietfyer.di.module.data
 
-import com.diet.dairy.data.DairyRepositoryImpl
-import com.diet.dairy.domain.repository.DairyRepository
+import com.diet.diary.data.DiaryRepositoryImpl
+import com.diet.diary.domain.repository.DiaryRepository
 import com.diet.network.authentication.AuthService
-import com.diet.network.dairy.DairyService
+import com.diet.network.diary.DiaryService
 import com.diet.session.authentication.data.SessionRepositoryImpl
 import com.diet.session.authentication.domain.repository.SessionRepository
 import com.diet.session.user.data.UserDataSource
@@ -21,9 +21,9 @@ class RepositoryModule {
     }
 
     @Provides
-    fun provideDairyRepository(
-        dairyService: DairyService, userDataSource: UserDataSource
-    ): DairyRepository {
-        return DairyRepositoryImpl(userDataSource, dairyService)
+    fun provideDiaryRepository(
+        DiaryService: DiaryService, userDataSource: UserDataSource
+    ): DiaryRepository {
+        return DiaryRepositoryImpl(userDataSource, DiaryService)
     }
 }

@@ -26,12 +26,12 @@ ext {
     ]
 
     modules = [
-            base        : project(':base'),
-            appResources: project(':app-resources'),
-            components  : project(':components'),
-            network     : project(':network'),
-            session     : project(':session'),
-            dairy       : project(':dairy')
+            base            : project(':base'),
+            appResources    : project(':app-resources'),
+            components      : project(':components'),
+            network         : project(':network'),
+            session         : project(':session'),
+            diary           : project(':feature-diary')
     ]
 
     components = [

@@ -41,8 +41,8 @@ class MainActivity : BaseActivity(), MainView {
             override fun onItemSelected(position: Int) {
                 Toast.makeText(this@MainActivity, "$position", Toast.LENGTH_SHORT).show()
                 when (position) {
-                    DAIRY_POSITION -> {
-                        presenter.loadDairyFragment()
+                    diary_POSITION -> {
+                        presenter.loaddiaryFragment()
                     }
                     4 -> {
                         sessionInteractor.logout()
@@ -55,6 +55,6 @@ class MainActivity : BaseActivity(), MainView {
     }
 
     companion object {
-        const val DAIRY_POSITION = 1
+        const val diary_POSITION = 1
     }
 }

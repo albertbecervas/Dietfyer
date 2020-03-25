@@ -6,7 +6,7 @@ import android.widget.Toast
 import com.abecerra.base.R
 
 
-abstract class BasePresenterFragment<PRESENTER : BasePresenter<*>>(var layout: Int) :
+abstract class BasePresenterFragment<PRESENTER : BasePresenter<*>>(layout: Int) :
     BaseFragment(layout), BaseView {
 
     protected var presenter: PRESENTER? = null

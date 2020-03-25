@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/cardview_margin"
+        android:layout_marginEnd="@dimen/cardview_margin"
+        android:layout_marginTop="@dimen/cardview_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView5"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_summary_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/cardview_inner_margin"
+                android:text="@string/summary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Summary" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_summary_calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_inner_margin"
+                android:text="@string/calories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_summary_title" />
+
+            <ProgressBar
+                android:id="@+id/progress_summary_calories"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="@dimen/cardview_progressbar_width"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_progressbar_margin_start"
+                android:layout_marginTop="@dimen/cardview_progressbar_margin_top"
+                android:max="100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_summary_title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_summary_calories_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_inner_margin"
+                app:layout_constraintStart_toEndOf="@id/progress_summary_calories"
+                app:layout_constraintTop_toBottomOf="@id/textview_summary_title"
+                tools:text="1500" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_summary_protein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_inner_margin"
+                android:text="@string/protein"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_summary_calories" />
+
+            <ProgressBar
+                android:id="@+id/progress_summary_protein"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="@dimen/cardview_progressbar_width"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_progressbar_margin_start"
+                android:layout_marginTop="@dimen/cardview_progressbar_margin_top"
+                android:max="100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progress_summary_calories" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_summary_protein_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_inner_margin"
+                app:layout_constraintStart_toEndOf="@id/progress_summary_protein"
+                app:layout_constraintTop_toBottomOf="@id/textview_summary_calories_value"
+                tools:text="120" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_summary_carbohydrates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_inner_margin"
+                android:text="@string/carbohydrates"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_summary_protein" />
+
+            <ProgressBar
+                android:id="@+id/progress_summary_carbohydrates"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="@dimen/cardview_progressbar_width"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_progressbar_margin_start"
+                android:layout_marginTop="@dimen/cardview_progressbar_margin_top"
+                android:max="100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progress_summary_protein" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_summary_carbohydrates_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_inner_margin"
+                app:layout_constraintStart_toEndOf="@id/progress_summary_carbohydrates"
+                app:layout_constraintTop_toBottomOf="@id/textview_summary_protein_value"
+                tools:text="120" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_summary_fat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_inner_margin"
+                android:paddingBottom="@dimen/cardview_inner_margin"
+                android:text="@string/fat"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_summary_carbohydrates" />
+
+            <ProgressBar
+                android:id="@+id/progress_summary_fat"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="@dimen/cardview_progressbar_width"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_progressbar_margin_start"
+                android:layout_marginTop="@dimen/cardview_progressbar_margin_top"
+                android:max="100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progress_summary_carbohydrates" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_summary_fat_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/cardview_inner_margin"
+                app:layout_constraintStart_toEndOf="@id/progress_summary_fat"
+                app:layout_constraintTop_toBottomOf="@id/textview_summary_carbohydrates_value"
+                tools:text="120" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textview_diary_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/diary_no_data_to_show_textsize"
+        android:text="@string/diary_no_data_to_show"
+        android:visibility="gone"/>
+    <include layout="@layout/progress_bar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

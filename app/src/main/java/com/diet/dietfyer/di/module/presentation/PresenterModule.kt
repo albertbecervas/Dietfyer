@@ -1,9 +1,9 @@
 package com.diet.dietfyer.di.module.presentation
 
-import com.diet.dairy.domain.interactor.DairyInteractor
-import com.diet.dairy.presentation.presenter.DairyPresenter
-import com.diet.dairy.presentation.presenter.DairyPresenterImpl
-import com.diet.dairy.presentation.router.DairyRouter
+import com.diet.diary.domain.interactor.DiaryInteractor
+import com.diet.diary.presentation.presenter.DiaryPresenter
+import com.diet.diary.presentation.presenter.DiaryPresenterImpl
+import com.diet.diary.presentation.router.DiaryRouter
 import com.diet.dietfyer.scenes.launcher.presenter.LauncherPresenter
 import com.diet.dietfyer.scenes.launcher.presenter.LauncherPresenterImpl
 import com.diet.dietfyer.scenes.launcher.router.LauncherRouter
@@ -41,9 +41,9 @@ open class PresenterModule {
     }
 
     @Provides
-    open fun provideDairyPresenter(
-        router: DairyRouter, interactor: DairyInteractor
-    ): DairyPresenter {
-        return DairyPresenterImpl(router, interactor)
+    open fun provideDiaryPresenter(
+        router: DiaryRouter, interactor: DiaryInteractor
+    ): DiaryPresenter {
+        return DiaryPresenterImpl(router, interactor)
     }
 }

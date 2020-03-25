@@ -37,7 +37,7 @@ dependencies {
     implementation modulesDependencies.components
     implementation modulesDependencies.network
     implementation modulesDependencies.session
-    implementation modulesDependencies.dairy
+    implementation modulesDependencies.diary
 
     def daggerDependencies = rootProject.ext.dagger
     implementation daggerDependencies.dagger

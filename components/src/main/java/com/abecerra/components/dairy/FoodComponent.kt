@@ -1,4 +1,4 @@
-package com.abecerra.components.dairy
+package com.abecerra.components.diary
 
 import android.content.Context
 import android.util.AttributeSet

@@ -13,8 +13,8 @@ class MainPresenterImpl(private val router: MainRouter) :
         router.loadDefaultFragment(R.id.base_fl)
     }
 
-    override fun loadDairyFragment() {
-        router.loadDairyFragment(R.id.base_fl)
+    override fun loaddiaryFragment() {
+        router.loaddiaryFragment(R.id.base_fl)
     }
 
     override fun getNavigationItems(): List<NavigationItem> {

@@ -1,9 +1,9 @@
 package com.diet.dietfyer.di.module.presentation
 
-import com.diet.dairy.presentation.router.DairyRouter
-import com.diet.dairy.presentation.view.DairyFragment
+import com.diet.diary.presentation.router.DiaryRouter
+import com.diet.diary.presentation.view.DiaryFragment
 import com.diet.dietfyer.navigation.navigator.Navigator
-import com.diet.dietfyer.navigation.routers.DairyRouterImpl
+import com.diet.dietfyer.navigation.routers.diaryRouterImpl
 import com.diet.dietfyer.navigation.routers.LauncherRouterImpl
 import com.diet.dietfyer.navigation.routers.LoginRouterImpl
 import com.diet.dietfyer.navigation.routers.MainRouterImpl
@@ -23,8 +23,8 @@ class RouterModule {
     }
 
     @Provides
-    fun provideMainRouter(navigator: Navigator, dairyFragment: DairyFragment): MainRouter {
-        return MainRouterImpl(navigator, dairyFragment)
+    fun provideMainRouter(navigator: Navigator, DiaryFragment: DiaryFragment): MainRouter {
+        return MainRouterImpl(navigator, DiaryFragment)
     }
 
     @Provides
@@ -33,7 +33,7 @@ class RouterModule {
     }
 
     @Provides
-    fun provideDairyRouter(navigator: Navigator): DairyRouter {
-        return DairyRouterImpl()
+    fun provideDiaryRouter(navigator: Navigator): DiaryRouter {
+        return diaryRouterImpl()
     }
 }

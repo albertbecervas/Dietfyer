@@ -1,8 +1,8 @@
 package com.diet.dietfyer.di.module.domain
 
-import com.diet.dairy.domain.interactor.DairyInteractor
-import com.diet.dairy.domain.interactor.DairyInteractorImpl
-import com.diet.dairy.domain.repository.DairyRepository
+import com.diet.diary.domain.interactor.DiaryInteractor
+import com.diet.diary.domain.interactor.DiaryInteractorImpl
+import com.diet.diary.domain.repository.DiaryRepository
 import com.diet.session.authentication.domain.interactor.SessionInteractor
 import com.diet.session.authentication.domain.interactor.SessionInteractorImpl
 import com.diet.session.authentication.domain.repository.SessionRepository
@@ -22,9 +22,9 @@ class InteractorModule {
     }
 
     @Provides
-    fun provideDairyInteractor(
-        dairyRepository: DairyRepository
-    ): DairyInteractor {
-        return DairyInteractorImpl(dairyRepository)
+    fun provideDiaryInteractor(
+        DiaryRepository: DiaryRepository
+    ): DiaryInteractor {
+        return DiaryInteractorImpl(DiaryRepository)
     }
 }
