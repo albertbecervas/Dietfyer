@@ -1,5 +1,7 @@
 package com.diet.diary.presentation
 
+import com.diet.common.model.FoodRegisterViewModel
+import com.diet.common.model.MacronutrientsViewModel
 import com.diet.diary.domain.model.*
 import com.diet.diary.presentation.model.*
 
@@ -24,7 +26,7 @@ internal fun Summary.toSummaryViewModel(): SummaryViewModel {
 
 internal fun FoodRegister.toFoodRegisterViewModel(): FoodRegisterViewModel {
     return FoodRegisterViewModel(
-        foodId = foodId,
+        foodName = foodName,
         calories = calories,
         macronutrients = macronutrients.toMacronutrientsViewModel()
     )
