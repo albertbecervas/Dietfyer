@@ -7,4 +7,6 @@ dependencies {
     implementation modulesDependencies.appResources
     implementation modulesDependencies.network
     implementation modulesDependencies.session
+    implementation modulesDependencies.common
+    implementation modulesDependencies.components
 }

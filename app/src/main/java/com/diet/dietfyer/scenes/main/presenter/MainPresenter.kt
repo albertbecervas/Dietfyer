@@ -8,7 +8,7 @@ interface MainPresenter : BasePresenter<MainView> {
 
     fun loadHomeFragment()
 
-    fun loaddiaryFragment()
+    fun loadDiaryFragment()
 
     fun getNavigationItems(): List<NavigationItem>
 }

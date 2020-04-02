@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="bottom_navigation_height">56dp</dimen>
+    <dimen name="meal_register_title_textsize">20sp</dimen>
+    <dimen name="fab_food_register_size">24dp</dimen>
 </resources>

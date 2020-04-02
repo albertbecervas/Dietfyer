@@ -31,7 +31,8 @@ ext {
             components      : project(':components'),
             network         : project(':network'),
             session         : project(':session'),
-            diary           : project(':feature-diary')
+            diary           : project(':feature-diary'),
+            common          : project('feature-common')
     ]
 
     components = [

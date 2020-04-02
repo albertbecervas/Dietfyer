@@ -1,4 +1,4 @@
-package com.diet.diary.presentation.model
+package com.diet.common.model
 
 data class MacronutrientsViewModel(
     val protein: Int,

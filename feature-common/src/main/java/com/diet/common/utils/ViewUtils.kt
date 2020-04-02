@@ -1,11 +1,10 @@
-package com.abecerra.base.utils
+package com.diet.common.utils
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import java.time.Duration
 
 fun ViewGroup.inflate(layout: Int): View {
     return LayoutInflater.from(context).inflate(layout, this, false)

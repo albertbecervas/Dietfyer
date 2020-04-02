@@ -13,7 +13,7 @@ class MainPresenterImpl(private val router: MainRouter) :
         router.loadDefaultFragment(R.id.base_fl)
     }
 
-    override fun loaddiaryFragment() {
+    override fun loadDiaryFragment() {
         router.loaddiaryFragment(R.id.base_fl)
     }
 

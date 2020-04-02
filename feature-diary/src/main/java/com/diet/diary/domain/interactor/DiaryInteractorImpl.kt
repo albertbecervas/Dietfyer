@@ -3,18 +3,28 @@ package com.diet.diary.domain.interactor
 import com.abecerra.base.domain.BaseInteractorImpl
 import com.abecerra.base.utils.calculatePercent
 import com.diet.diary.domain.model.Diary
+import com.diet.diary.domain.model.FoodRegister
+import com.diet.diary.domain.model.MealRegister
 import com.diet.diary.domain.repository.DiaryRepository
 import com.diet.diary.domain.repository.DiaryRepositoryOutput
 
-class DiaryInteractorImpl(private val DiaryRepository: DiaryRepository) :
+class DiaryInteractorImpl(private val diaryRepository: DiaryRepository) :
     BaseInteractorImpl<DiaryInteractorOutput>(), DiaryInteractor, DiaryRepositoryOutput {
 
     init {
-        DiaryRepository.setRepositoryOutput(this)
+        diaryRepository.setRepositoryOutput(this)
     }
 
     override fun getCurrentDayDiary() {
-        DiaryRepository.getCurrentDayDiary()
+        diaryRepository.getCurrentDayDiary()
+    }
+
+    override fun addFoodRegisterToMeal(mealRegisterList: List<MealRegister>) {
+        diaryRepository.addFoodRegisterToMeal(mealRegisterList)
+    }
+
+    override fun addMeal(mealRegister: MealRegister) {
+        diaryRepository.addMeal(mealRegister)
     }
 
     override fun onSuccessFetchUserdiary(model: Diary) {
@@ -24,6 +34,22 @@ class DiaryInteractorImpl(private val DiaryRepository: DiaryRepository) :
 
     override fun onErrorFetchUserdiary() {
         output?.onErrorFetchUserdiary()
+    }
+
+    override fun onSuccessAddFoodRegister(mealRegisterList: List<MealRegister>) {
+        output?.onSuccessAddFoodRegister(mealRegisterList)
+    }
+
+    override fun onErrorAddFoodRegister() {
+        output?.onErrorAddFoodRegister()
+    }
+
+    override fun onSuccessAddMeal(meal: MealRegister) {
+        output?.onSuccessAddMeal(meal)
+    }
+
+    override fun onErrorAddMeal() {
+        output?.onErrorAddMeal()
     }
 
     private fun fillPercents(model: Diary) {
