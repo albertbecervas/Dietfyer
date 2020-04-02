@@ -1,6 +1,8 @@
 package com.diet.dietfyer.di.module.presentation
 
 import android.content.Context
+import com.diet.diary.presentation.presenter.DiaryPresenter
+import com.diet.diary.presentation.view.DiaryFragment
 import com.diet.session.login.view.LoginFragment
 import com.diet.session.login.presenter.LoginPresenter
 import dagger.Module
@@ -17,5 +19,12 @@ open class ViewModule(private val context: Context) {
         val loginFragment = LoginFragment()
         loginFragment.injectPresenter(loginPresenter)
         return loginFragment
+    }
+
+    @Provides
+    open fun provideDiaryFragment(DiaryPresenter : DiaryPresenter) : DiaryFragment {
+        val diaryFragment = DiaryFragment()
+        diaryFragment.injectPresenter(DiaryPresenter)
+        return diaryFragment
     }
 }

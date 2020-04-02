@@ -13,4 +13,7 @@ interface Navigator {
     fun startActivityForResult(intent: Intent, resultCode: Int, fragment: Fragment)
 
     fun replaceFragment(fragment: Fragment, layout: Int)
+
+    fun addFragment(fragment: Fragment, layout: Int)
+
 }

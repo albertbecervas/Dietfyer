@@ -39,6 +39,7 @@ class SessionRepositoryImpl(
     override fun saveLoggedUser(userId: String) {
         authService.createUserEntry(userId)
         userDataSource.setUserLogged()
+        userDataSource.setUserId(userId)
     }
 
     override fun doLogout() {

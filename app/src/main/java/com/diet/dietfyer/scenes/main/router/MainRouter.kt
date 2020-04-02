@@ -4,4 +4,5 @@ import androidx.annotation.IdRes
 
 interface MainRouter {
     fun loadDefaultFragment(@IdRes layout: Int)
+    fun loaddiaryFragment(@IdRes layout: Int)
 }

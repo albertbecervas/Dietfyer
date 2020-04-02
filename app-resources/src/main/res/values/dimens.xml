@@ -10,4 +10,8 @@
     <dimen name="login_need_an_account_margin_bottom">36dp</dimen>
     <dimen name="login_divider_margin">16dp</dimen>
     <dimen name="login_sign_in_google_button_margin_side">16dp</dimen>
+    <dimen name="cardview_margin">16dp</dimen>
+    <dimen name="cardview_inner_margin">8dp</dimen>
+    <dimen name="cardview_progressbar_margin_top">4dp</dimen>
+    <dimen name="cardview_progressbar_margin_start">16dp</dimen>
 </resources>
