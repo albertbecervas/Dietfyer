@@ -1,7 +1,7 @@
-package com.diet.diary.presentation.model
+package com.diet.common.model
 
 data class FoodRegisterViewModel(
-    val foodId: String,
+    val foodName: String,
     val calories: Int,
     val macronutrients: MacronutrientsViewModel
 )

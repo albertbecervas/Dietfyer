@@ -1,14 +1,17 @@
 package com.diet.network.diary
 
-import com.abecerra.base.utils.IntConstants
+import com.abecerra.base.utils.DATE_ddMMYYYY_FORMAT
+import com.abecerra.base.utils.getStringDateByPattern
 import com.diet.network.diary.model.DiaryDto
+import com.diet.network.diary.model.MealRegisterDto
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
 class DiaryServiceImpl : DiaryService {
     companion object {
-        const val diary_COLLECTION_PATH = "diary"
-        const val USER_ID_DICTIONARY = "userId"
+        const val DIARY_COLLECTION_PATH = "diary"
+        const val MEAL_REGISTER_FIELD = "mealRegister"
     }
 
     override fun getDiary(
@@ -16,19 +19,16 @@ class DiaryServiceImpl : DiaryService {
         success: (diaryDto: DiaryDto) -> Unit,
         error: () -> Unit
     ) {
-        val database = FirebaseFirestore.getInstance()
-        database.collection(diary_COLLECTION_PATH).whereEqualTo(USER_ID_DICTIONARY, userId)
-            .get().addOnCompleteListener() {
-                if (!it.result?.documents.isNullOrEmpty()) {
-                    it.result?.documents?.get(IntConstants.FIRST_POSITION)
-                        ?.toObject(DiaryDto::class.java)?.let { diary -> success(diary) }
-                        ?: success(
-                            DiaryDto()
-                        )
-                } else {
-                    success(DiaryDto())
-                }
-            }.addOnFailureListener { error() }
+        val documentRef = FirebaseFirestore.getInstance().collection(DIARY_COLLECTION_PATH)
+            .document(userId + getStringDateByPattern(DATE_ddMMYYYY_FORMAT, Date()))
+        documentRef.get().addOnSuccessListener {
+            it.toObject(DiaryDto::class.java)?.let { diary -> success(diary) } ?: with(DiaryDto()) {
+                documentRef.set(this)
+                success(this)
+            }
+
+        }.addOnFailureListener { error() }
+
     }
 
     override fun getDiary(
@@ -37,7 +37,42 @@ class DiaryServiceImpl : DiaryService {
         success: (diaryDto: DiaryDto) -> Unit,
         error: () -> Unit
     ) {
-        TODO("Not yet implemented")
+        val documentRef = FirebaseFirestore.getInstance().collection(DIARY_COLLECTION_PATH)
+            .document(userId + getStringDateByPattern(DATE_ddMMYYYY_FORMAT, date))
+        documentRef.get().addOnSuccessListener {
+            it.toObject(DiaryDto::class.java)?.let { diary -> success(diary) } ?: with(DiaryDto()) {
+                documentRef.set(this)
+                success(this)
+            }
+
+        }.addOnFailureListener { error() }
+    }
+
+
+    override fun addMeal(
+        mealRegisterDto: MealRegisterDto,
+        userId: String,
+        success: () -> Unit,
+        error: () -> Unit
+    ) {
+        val documentRef = FirebaseFirestore.getInstance().collection(DIARY_COLLECTION_PATH)
+            .document(userId + getStringDateByPattern(DATE_ddMMYYYY_FORMAT, Date()))
+        documentRef.update(MEAL_REGISTER_FIELD, FieldValue.arrayUnion(mealRegisterDto))
+            .addOnSuccessListener { success() }
+            .addOnFailureListener { error() }
+    }
+
+    override fun addFoodRegisterToMeal(
+        mealRegisterDtoList: List<MealRegisterDto>,
+        userId: String,
+        success: () -> Unit,
+        error: () -> Unit
+    ) {
+        val documentRef = FirebaseFirestore.getInstance().collection(DIARY_COLLECTION_PATH)
+            .document(userId + getStringDateByPattern(DATE_ddMMYYYY_FORMAT, Date()))
+        documentRef.update(MEAL_REGISTER_FIELD, mealRegisterDtoList)
+            .addOnSuccessListener { success() }
+            .addOnFailureListener { error() }
     }
 
 }

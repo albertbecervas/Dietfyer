@@ -1,4 +1,4 @@
-package com.abecerra.base.presentation
+package com.abecerra.components.base
 
 import androidx.recyclerview.widget.RecyclerView
 
@@ -15,6 +15,9 @@ abstract class BaseAdapter<K : RecyclerView.ViewHolder, L> : RecyclerView.Adapte
     override fun getItemCount(): Int = mItems.size
 
     fun getItems() = mItems
+
+    fun getItem(predicate: (L) -> Boolean): L? = mItems.find(predicate)
+
 
     fun setItems(items: List<L>) {
         mItems.clear()

@@ -42,7 +42,7 @@ class MainActivity : BaseActivity(), MainView {
                 Toast.makeText(this@MainActivity, "$position", Toast.LENGTH_SHORT).show()
                 when (position) {
                     diary_POSITION -> {
-                        presenter.loaddiaryFragment()
+                        presenter.loadDiaryFragment()
                     }
                     4 -> {
                         sessionInteractor.logout()

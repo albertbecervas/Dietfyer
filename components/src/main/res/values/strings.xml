@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="kcal">Kcal</string>
+    <string name="prot">Prot</string>
+    <string name="carbh">Carbh</string>
+    <string name="fat">Fat</string>
+</resources>
