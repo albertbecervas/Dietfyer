@@ -71,7 +71,8 @@ internal fun MealRegister.toMealRegisterViewModel(): MealRegisterViewModel {
     return MealRegisterViewModel(
         mealTitle = mealTitle,
         foodRegister = foodRegister.map { item -> item.toFoodRegisterViewModel() }.toMutableList(),
-        total = total.toMacronutrientsViewModel()
+        total = total.toMacronutrientsViewModel(),
+        totalCalories = totalCalories
     )
 }
 
@@ -79,6 +80,7 @@ internal fun MealRegisterViewModel.toMealRegister(): MealRegister {
     return MealRegister(
         mealTitle = mealTitle,
         foodRegister = foodRegister.map { item -> item.toFoodRegister() },
-        total = total.toMacronutrients()
+        total = total.toMacronutrients(),
+        totalCalories = totalCalories
     )
 }

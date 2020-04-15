@@ -5,8 +5,6 @@ import android.util.AttributeSet
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.abecerra.components.R
-import kotlinx.android.synthetic.main.food_register_item.view.*
-import kotlinx.android.synthetic.main.view_meal_register.view.*
 
 class MealComponent : ConstraintLayout {
 
@@ -21,6 +19,5 @@ class MealComponent : ConstraintLayout {
     init {
         LinearLayout.inflate(context, R.layout.view_meal_register, this)
     }
-
 
 }

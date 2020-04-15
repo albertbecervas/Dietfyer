@@ -2,23 +2,19 @@ package com.abecerra.components.diary
 
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.abecerra.components.R
 import com.abecerra.components.base.BaseAdapter
-import com.diet.common.model.FoodRegisterViewModel
-import com.diet.common.model.MacronutrientsViewModel
 import com.diet.common.model.MealRegisterViewModel
 import com.diet.common.utils.inflate
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.view_meal_register.view.*
 
 
 class MealRegisterRecyclerAdapter :
     BaseAdapter<MealRegisterRecyclerAdapter.ViewHolder, MealRegisterViewModel>() {
 
-    var listener : FabAddFoodListener? = null
+    var listener: FabAddFoodListener? = null
 
     override fun onBindViewHolder(holder: ViewHolder, item: MealRegisterViewModel, pos: Int) {
         holder.bind(item)
@@ -26,38 +22,39 @@ class MealRegisterRecyclerAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val adapter = FoodRegisterRecyclerAdapter()
-        val holder = ViewHolder(adapter, parent.inflate(R.layout.view_meal_register))
-        val childLayoutManager =
-            LinearLayoutManager(holder.foodRecyclerView.context, RecyclerView.VERTICAL, false)
-        holder.foodRecyclerView.apply {
-            layoutManager = childLayoutManager
-            this.adapter = adapter
-            setRecycledViewPool(RecyclerView.RecycledViewPool())
-        }
-        return holder
+        return ViewHolder(adapter, parent.inflate(R.layout.view_meal_register))
     }
 
 
     inner class ViewHolder(
         private val foodRecyclerAdapter: FoodRegisterRecyclerAdapter,
-        view: View
-    ) :
-        RecyclerView.ViewHolder(view) {
-        private val mealRegisterTitle =
-            view.findViewById<TextView>(R.id.textview_meal_register_title)
-        private val fabFoodRegister =
-            view.findViewById<FloatingActionButton>(R.id.button_meal_register_add_food)
-        val foodRecyclerView = view.findViewById<RecyclerView>(R.id.recyclerview_food_register)
+        private val view: View
+    ) : RecyclerView.ViewHolder(view) {
+        init {
+            view.recyclerview_food_register.layoutManager =
+                LinearLayoutManager(view.context, RecyclerView.VERTICAL, false)
+            view.recyclerview_food_register.adapter = foodRecyclerAdapter
+        }
 
         fun bind(mealRegisterViewModel: MealRegisterViewModel) {
-            mealRegisterTitle.text = mealRegisterViewModel.mealTitle
+            view.textview_meal_register_title.text = mealRegisterViewModel.mealTitle
+            setTotals(mealRegisterViewModel)
             foodRecyclerAdapter.setItems(
                 mealRegisterViewModel.foodRegister
             )
-            fabFoodRegister.setOnClickListener {
+            view.button_meal_register_add_food.setOnClickListener {
                 listener?.onFabAddFoodClick(mealRegisterViewModel.mealTitle)
             }
 
+        }
+
+        fun setTotals(mealRegisterViewModel: MealRegisterViewModel) {
+            with(mealRegisterViewModel) {
+                view.textview_meal_register_total_calories.text = totalCalories.toString()
+                view.textview_meal_register_total_protein.text = total.protein.toString()
+                view.textview_meal_register_total_carbohydrates.text = total.carbohydrates.toString()
+                view.textview_meal_register_total_fat.text = total.fat.toString()
+            }
         }
 
     }

@@ -60,7 +60,7 @@ class DiaryFragment : BasePresenterFragment<DiaryPresenter>(R.layout.fragment_di
                 MealRegisterViewModel(
                     "DummyMeal" + mealRecyclerAdapter.itemCount,
                     mutableListOf(),
-                    MacronutrientsViewModel(0, 0, 0, 0, 0, 0)
+                    MacronutrientsViewModel(0, 0, 0, 0, 0, 0), 0
                 )
             )
         }

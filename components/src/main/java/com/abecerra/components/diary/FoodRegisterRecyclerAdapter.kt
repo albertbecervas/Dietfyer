@@ -23,7 +23,7 @@ class FoodRegisterRecyclerAdapter :
         holder.bind(item)
     }
 
-    inner class ViewHolder(foodRegisterItem: View) :
+    class ViewHolder(foodRegisterItem: View) :
         RecyclerView.ViewHolder(foodRegisterItem) {
         private val foodRegisterItemName =
             foodRegisterItem.findViewById<TextView>(R.id.food_register_item_textview_foodname)

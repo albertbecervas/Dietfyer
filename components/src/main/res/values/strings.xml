@@ -4,4 +4,5 @@
     <string name="prot">Prot</string>
     <string name="carbh">Carbh</string>
     <string name="fat">Fat</string>
+    <string name="total">Total:</string>
 </resources>

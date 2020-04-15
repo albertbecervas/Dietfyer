@@ -3,7 +3,7 @@ package com.diet.diary.domain.interactor
 import com.abecerra.base.domain.BaseInteractorImpl
 import com.abecerra.base.utils.calculatePercent
 import com.diet.diary.domain.model.Diary
-import com.diet.diary.domain.model.FoodRegister
+import com.diet.diary.domain.model.Macronutrients
 import com.diet.diary.domain.model.MealRegister
 import com.diet.diary.domain.repository.DiaryRepository
 import com.diet.diary.domain.repository.DiaryRepositoryOutput
@@ -29,6 +29,7 @@ class DiaryInteractorImpl(private val diaryRepository: DiaryRepository) :
 
     override fun onSuccessFetchUserdiary(model: Diary) {
         fillPercents(model)
+        fillTotals(model)
         output?.onSuccessFetchUserdiary(model)
     }
 
@@ -63,6 +64,17 @@ class DiaryInteractorImpl(private val diaryRepository: DiaryRepository) :
             )
             summary.macronutrients.fatPercent =
                 calculatePercent(summary.macronutrients.fat, goals.macronutrients.fat)
+        }
+    }
+
+    private fun fillTotals(model: Diary) {
+        with(model.mealRegister) {
+            forEach { mealRegister ->
+                mealRegister.foodRegister.forEach {
+                    mealRegister.total += it.macronutrients
+                    mealRegister.totalCalories += it.calories
+                }
+            }
         }
     }
 }
