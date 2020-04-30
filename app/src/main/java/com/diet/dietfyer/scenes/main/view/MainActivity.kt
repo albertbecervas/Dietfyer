@@ -3,6 +3,7 @@ package com.diet.dietfyer.scenes.main.view
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.abecerra.base.presentation.BaseActivity
 import com.abecerra.components.bottomnavigation.BottomNavigationListener
 import com.diet.dietfyer.R
@@ -11,6 +12,7 @@ import com.diet.dietfyer.di.module.presentation.ViewModule
 import com.diet.dietfyer.scenes.launcher.view.LauncherActivity
 import com.diet.dietfyer.scenes.main.presenter.MainPresenter
 import com.diet.session.authentication.domain.interactor.SessionInteractor
+import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -31,8 +33,27 @@ class MainActivity : BaseActivity(), MainView {
 
         presenter.setView(this)
         presenter.loadHomeFragment()
-
         initBottomNavigation()
+        initToolBar()
+
+    }
+
+    private fun initToolBar() {
+        setSupportActionBar(findViewById(R.id.main_collapsible_toolbar))
+        disableToolbarScroll()
+    }
+
+    private fun disableToolbarScroll() {
+        val mainAppBarLayout = findViewById<AppBarLayout>(R.id.main_appbar_layout)
+        val params = mainAppBarLayout.layoutParams as CoordinatorLayout.LayoutParams
+        if (params.behavior == null)
+            params.behavior = AppBarLayout.Behavior()
+        val behaviour = params.behavior as AppBarLayout.Behavior
+        behaviour.setDragCallback(object : AppBarLayout.Behavior.DragCallback() {
+            override fun canDrag(appBarLayout: AppBarLayout): Boolean {
+                return false
+            }
+        })
     }
 
     private fun initBottomNavigation() {
@@ -41,7 +62,7 @@ class MainActivity : BaseActivity(), MainView {
             override fun onItemSelected(position: Int) {
                 Toast.makeText(this@MainActivity, "$position", Toast.LENGTH_SHORT).show()
                 when (position) {
-                    diary_POSITION -> {
+                    DIARY_POSITION -> {
                         presenter.loadDiaryFragment()
                     }
                     4 -> {
@@ -55,6 +76,6 @@ class MainActivity : BaseActivity(), MainView {
     }
 
     companion object {
-        const val diary_POSITION = 1
+        const val DIARY_POSITION = 1
     }
 }

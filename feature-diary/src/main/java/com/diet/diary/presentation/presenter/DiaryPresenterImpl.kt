@@ -1,6 +1,7 @@
 package com.diet.diary.presentation.presenter
 
 import com.abecerra.base.presentation.BasePresenterImpl
+import com.abecerra.base.utils.DATE_ddMMYYYY_SLASH_FORMAT
 import com.diet.common.model.FoodRegisterViewModel
 import com.diet.common.model.MealRegisterViewModel
 import com.diet.diary.domain.interactor.DiaryInteractor
@@ -13,6 +14,8 @@ import com.diet.diary.presentation.toFoodRegister
 import com.diet.diary.presentation.toMealRegister
 import com.diet.diary.presentation.toMealRegisterViewModel
 import com.diet.diary.presentation.view.DiaryView
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DiaryPresenterImpl(
     private val diaryRouter: DiaryRouter,
@@ -24,19 +27,30 @@ class DiaryPresenterImpl(
         diaryInteractor.setInteractorOutput(this)
     }
 
+    var selectedDate: Date = Date()
+
     override fun getCurrentDaydiary() {
         getView()?.showProgressBar()
         diaryInteractor.getCurrentDayDiary()
     }
 
-    override fun addFoodRegisterToMeal(mealRegisterList: List<MealRegisterViewModel>) {
+    override fun onAddFoodRegisterToMeal(mealRegisterList: List<MealRegisterViewModel>) {
         getView()?.showProgressBar()
-        diaryInteractor.addFoodRegisterToMeal(mealRegisterList.map { it.toMealRegister() })
+        diaryInteractor.addFoodRegisterToMeal(
+            selectedDate,
+            mealRegisterList.map { it.toMealRegister() })
     }
 
-    override fun addMeal(mealRegisterViewModel: MealRegisterViewModel) {
+    override fun onAddMealClick(mealRegisterViewModel: MealRegisterViewModel) {
         getView()?.showProgressBar()
-        diaryInteractor.addMeal(mealRegisterViewModel.toMealRegister())
+        diaryInteractor.addMeal(selectedDate, mealRegisterViewModel.toMealRegister())
+    }
+
+    override fun onDateFilterChange(day: Int, month: Int, year: Int) {
+        updateSelectedDate(day, month, year)
+        getView()?.showProgressBar()
+        updateToolbarTitle()
+        diaryInteractor.getDiaryByDate(day, month, year)
     }
 
     override fun onSuccessFetchUserdiary(model: Diary) {
@@ -64,6 +78,30 @@ class DiaryPresenterImpl(
     }
 
     override fun onErrorAddMeal() {
+    }
+
+    private fun updateSelectedDate(day: Int, month: Int, year: Int) {
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month, day)
+        selectedDate = calendar.time
+    }
+
+    private fun updateToolbarTitle() {
+        val selectedDateCalendar = Calendar.getInstance()
+        selectedDateCalendar.time = selectedDate
+        val currentDateCalendar = Calendar.getInstance()
+        if (selectedDateCalendar.get(Calendar.YEAR) == currentDateCalendar.get(Calendar.YEAR) && selectedDateCalendar.get(
+                Calendar.MONTH
+            ) == currentDateCalendar.get(Calendar.MONTH) && selectedDateCalendar.get(Calendar.DAY_OF_MONTH) == currentDateCalendar.get(
+                Calendar.DAY_OF_MONTH
+            )
+        ) {
+            getView()?.setTodaySelectedDate()
+        }
+        else {
+            val dateFormat = SimpleDateFormat.getDateInstance()
+            getView()?.setSelectedDate(dateFormat.format(selectedDateCalendar.time))
+        }
     }
 
 }

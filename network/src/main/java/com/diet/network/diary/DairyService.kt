@@ -19,6 +19,7 @@ interface DiaryService {
     fun addFoodRegisterToMeal(
         mealRegisterDtoList: List<MealRegisterDto>,
         userId: String,
+        date: Date,
         success: () -> Unit,
         error: () -> Unit
     )
@@ -26,6 +27,7 @@ interface DiaryService {
     fun addMeal(
         mealRegisterDto: MealRegisterDto,
         userId: String,
+        date: Date,
         success: () -> Unit,
         error: () -> Unit
     )
