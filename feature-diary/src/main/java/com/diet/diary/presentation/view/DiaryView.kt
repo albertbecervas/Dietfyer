@@ -9,4 +9,6 @@ interface DiaryView : BaseView {
     fun showEmptyDiary()
     fun updateMealList(mealRegisterList: List<MealRegisterViewModel>)
     fun addMeal(meal: MealRegisterViewModel)
+    fun setSelectedDate(format: String)
+    fun setTodaySelectedDate()
 }

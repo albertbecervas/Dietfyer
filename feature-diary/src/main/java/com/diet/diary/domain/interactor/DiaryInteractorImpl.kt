@@ -7,6 +7,7 @@ import com.diet.diary.domain.model.Macronutrients
 import com.diet.diary.domain.model.MealRegister
 import com.diet.diary.domain.repository.DiaryRepository
 import com.diet.diary.domain.repository.DiaryRepositoryOutput
+import java.util.*
 
 class DiaryInteractorImpl(private val diaryRepository: DiaryRepository) :
     BaseInteractorImpl<DiaryInteractorOutput>(), DiaryInteractor, DiaryRepositoryOutput {
@@ -19,12 +20,18 @@ class DiaryInteractorImpl(private val diaryRepository: DiaryRepository) :
         diaryRepository.getCurrentDayDiary()
     }
 
-    override fun addFoodRegisterToMeal(mealRegisterList: List<MealRegister>) {
-        diaryRepository.addFoodRegisterToMeal(mealRegisterList)
+    override fun getDiaryByDate(day: Int, month: Int, year: Int) {
+        val calendar = Calendar.getInstance()
+        calendar.set(year,month,day)
+        diaryRepository.getDiaryByDate(calendar.time)
     }
 
-    override fun addMeal(mealRegister: MealRegister) {
-        diaryRepository.addMeal(mealRegister)
+    override fun addFoodRegisterToMeal(date: Date, mealRegisterList: List<MealRegister>) {
+        diaryRepository.addFoodRegisterToMeal(date,mealRegisterList)
+    }
+
+    override fun addMeal(date: Date, mealRegister: MealRegister) {
+        diaryRepository.addMeal(date,mealRegister)
     }
 
     override fun onSuccessFetchUserdiary(model: Diary) {

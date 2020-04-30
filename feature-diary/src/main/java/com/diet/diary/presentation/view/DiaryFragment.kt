@@ -1,7 +1,12 @@
 package com.diet.diary.presentation.view
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
+import android.widget.CalendarView
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.abecerra.base.presentation.BasePresenterFragment
@@ -10,21 +15,50 @@ import com.abecerra.components.diary.MealRegisterRecyclerAdapter
 import com.diet.common.model.FoodRegisterViewModel
 import com.diet.common.model.MacronutrientsViewModel
 import com.diet.common.model.MealRegisterViewModel
+import com.diet.common.utils.isExpanded
+import com.diet.common.utils.toast
 import com.diet.diary.R
 import com.diet.diary.presentation.model.DiaryViewModel
 import com.diet.diary.presentation.model.SummaryViewModel
 import com.diet.diary.presentation.presenter.DiaryPresenter
+import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fragment_diary.*
 
 
 class DiaryFragment : BasePresenterFragment<DiaryPresenter>(R.layout.fragment_diary), DiaryView {
 
     private lateinit var mealRecyclerAdapter: MealRegisterRecyclerAdapter
+    private lateinit var toolbarCalendarView: CalendarView
+    private lateinit var toolbarSelectedDateTv: TextView
+    private lateinit var appBarLayout: AppBarLayout
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.diary_toolbar_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_filter -> {
+            appBarLayout.setExpanded(!appBarLayout.isExpanded())
+            true
+        }
+
+        else -> {
+            true
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         presenter?.setView(this)
         presenter?.getCurrentDaydiary()
         initRecycler(view)
+        initToolbarViews()
         setListeners()
     }
 
@@ -46,7 +80,7 @@ class DiaryFragment : BasePresenterFragment<DiaryPresenter>(R.layout.fragment_di
                                 MacronutrientsViewModel(0, 0, 0, 0, 0, 0)
                             )
                         )
-                        presenter?.addFoodRegisterToMeal(it.getItems())
+                        presenter?.onAddFoodRegisterToMeal(it.getItems())
                     }
                 }
             }
@@ -54,9 +88,27 @@ class DiaryFragment : BasePresenterFragment<DiaryPresenter>(R.layout.fragment_di
         mealRegisterRecycler.adapter = mealRecyclerAdapter
     }
 
+    private fun initToolbarViews() {
+        activity?.let {
+            appBarLayout = it.findViewById(R.id.main_appbar_layout)
+            toolbarSelectedDateTv = it.findViewById(R.id.main_toolbar_title)
+            setTodaySelectedDate()
+            toolbarCalendarView = it.findViewById(R.id.main_toolbar_calendarview)
+            toolbarCalendarView.setOnDateChangeListener { p0, p1, p2, p3 ->
+                appBarLayout.setExpanded(false)
+                presenter?.onDateFilterChange(
+                    day = p3,
+                    month = p2,
+                    year = p1
+                )
+            }
+        }
+    }
+
+
     private fun setListeners() {
         button_diary_add_meal.setOnClickListener {
-            presenter?.addMeal(
+            presenter?.onAddMealClick(
                 MealRegisterViewModel(
                     "DummyMeal" + mealRecyclerAdapter.itemCount,
                     mutableListOf(),
@@ -78,10 +130,18 @@ class DiaryFragment : BasePresenterFragment<DiaryPresenter>(R.layout.fragment_di
         mealRecyclerAdapter.addItem(meal)
     }
 
+    override fun setSelectedDate(format: String) {
+        toolbarSelectedDateTv.text = format
+    }
+
+    override fun setTodaySelectedDate() {
+        toolbarSelectedDateTv.text = getString(R.string.date_today)
+    }
+
     override fun showDiary(diary: DiaryViewModel) {
         fillProgressBars(diary.summary)
         fillSummaryTextViews(diary.summary)
-        mealRecyclerAdapter.addItems(diary.mealRegister)
+        mealRecyclerAdapter.setItems(diary.mealRegister)
     }
 
     private fun fillProgressBars(summaryViewModel: SummaryViewModel) {

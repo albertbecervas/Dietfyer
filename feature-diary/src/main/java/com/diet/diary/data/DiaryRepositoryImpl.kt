@@ -6,6 +6,7 @@ import com.diet.diary.domain.repository.DiaryRepository
 import com.diet.diary.domain.repository.DiaryRepositoryOutput
 import com.diet.network.diary.DiaryService
 import com.diet.session.user.data.UserDataSource
+import java.util.*
 
 class DiaryRepositoryImpl(
     private val userDataSource: UserDataSource,
@@ -19,21 +20,31 @@ class DiaryRepositoryImpl(
             { output?.onErrorFetchUserdiary() })
     }
 
-    override fun addFoodRegisterToMeal(mealRegisterList: List<MealRegister>) {
+    override fun getDiaryByDate(date: Date) {
+        diaryService.getDiary(
+            userDataSource.getCurrentUserId(),
+            date,
+            { output?.onSuccessFetchUserdiary(it.toDiary()) },
+            { output?.onErrorFetchUserdiary() })
+    }
+
+    override fun addFoodRegisterToMeal(date: Date, mealRegisterList: List<MealRegister>) {
         diaryService.addFoodRegisterToMeal(
             mealRegisterList.map {
                 it.toMealRegisterDto()
             },
             userDataSource.getCurrentUserId(),
+            date,
             { output?.onSuccessAddFoodRegister(mealRegisterList) },
             { output?.onErrorAddMeal() })
     }
 
 
-    override fun addMeal(mealRegister: MealRegister) {
+    override fun addMeal(date: Date, mealRegister: MealRegister) {
         diaryService.addMeal(
             mealRegister.toMealRegisterDto(),
             userDataSource.getCurrentUserId(),
+            date,
             { output?.onSuccessAddMeal(mealRegister) },
             { output?.onErrorAddMeal() })
     }

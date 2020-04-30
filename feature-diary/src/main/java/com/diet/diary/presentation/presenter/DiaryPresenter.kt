@@ -7,6 +7,7 @@ import com.diet.diary.presentation.view.DiaryView
 
 interface DiaryPresenter : BasePresenter<DiaryView> {
     fun getCurrentDaydiary()
-    fun addFoodRegisterToMeal(mealRegisterList: List<MealRegisterViewModel>)
-    fun addMeal(mealRegisterViewModel: MealRegisterViewModel)
+    fun onAddFoodRegisterToMeal(mealRegisterList: List<MealRegisterViewModel>)
+    fun onAddMealClick(mealRegisterViewModel: MealRegisterViewModel)
+    fun onDateFilterChange(day: Int, month: Int, year: Int)
 }
